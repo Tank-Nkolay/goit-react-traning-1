@@ -9,10 +9,14 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   </React.StrictMode>
 );
 
-const element = React.createElement('div', {
-  a: 5,
-  b: 10,
-  children: 'Привет Мир',
-});
+const elem1 = <span>Привет</span>;
+const elem2 = <span>Мир</span>;
+
+const element = (
+  <div>
+    {elem1}
+    {elem2}
+  </div>
+);
 
 console.log(element);
