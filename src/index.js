@@ -8,3 +8,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <App />
   </React.StrictMode>
 );
+
+const element = React.createElement('div', { a: 5, b: 10 }, 'Привет Мир');
+
+console.log(element);
