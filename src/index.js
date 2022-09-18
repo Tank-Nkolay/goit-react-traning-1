@@ -12,7 +12,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 const element = React.createElement('div', {
   a: 5,
   b: 10,
-  children: ['Привет', ' ', 'Мир'],
+  children: 'Привет Мир',
 });
 
 console.log(element);
