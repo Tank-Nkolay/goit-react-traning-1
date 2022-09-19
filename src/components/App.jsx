@@ -14,18 +14,3 @@ export const App = () => {
     </div>
   );
 };
-
-export const panting = () => {
-  return (
-    <div
-      id="root"
-      style={{
-        height: '100vh',
-        fontSize: 40,
-        color: '#010101',
-      }}
-    >
-      111
-    </div>
-  );
-};
