@@ -1,6 +1,11 @@
+// импорт библиотеки протайпс (проверка)
+import PropTypes from 'prop-types';
+// импорт дефолтной картинки
 import defaultImg from '../default.jpg';
 
+// функция которая задает разметку
 export default function Panting({
+  // входящие пропсы (значения) функции
   imgUrl = defaultImg,
   title,
   profileUrl,
@@ -20,3 +25,12 @@ export default function Panting({
     </div>
   );
 }
+
+// проверяем значение которое приходит
+Panting.propTypes = {
+  imgUrl: PropTypes.string,
+  title: PropTypes.string,
+  profileUrl: PropTypes.string,
+  autor: PropTypes.string,
+  price: PropTypes.number,
+};

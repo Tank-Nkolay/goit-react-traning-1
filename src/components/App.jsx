@@ -1,4 +1,6 @@
+// импорт функции разметки
 import Panting from './Panting';
+// импорт масива данных для разметки (для пропсов)
 import pantings from '../pantings.json';
 
 export const App = () => {
