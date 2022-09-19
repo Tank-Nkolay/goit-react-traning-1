@@ -1,7 +1,15 @@
-export default function Panting({ url, title, profileUrl, autor, price }) {
+import defaultImg from '../default.jpg';
+
+export default function Panting({
+  imgUrl = defaultImg,
+  title,
+  profileUrl,
+  autor = 'не известно',
+  price,
+}) {
   return (
     <div>
-      <img src={url} alt={title} width="480" />
+      <img src={imgUrl} alt={title} width="480" />
       <h2>{title}</h2>
       <p>
         Автор: <a href={profileUrl}>{autor}</a>

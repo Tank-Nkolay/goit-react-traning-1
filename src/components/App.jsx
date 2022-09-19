@@ -14,7 +14,7 @@ export const App = () => {
       }}
     >
       <Panting
-        url={pantings.url}
+        imgUrl={pantings.url}
         title={pantings.title}
         profileUrl={pantings.author.url}
         autor={pantings.author.tag}
