@@ -1,5 +1,5 @@
 import Panting from './Panting';
-import pantings from '../index';
+import pantings from '../pantings.json';
 
 export const App = () => {
   return (
@@ -13,7 +13,13 @@ export const App = () => {
         color: '#010101',
       }}
     >
-      <Panting />
+      <Panting
+        url={pantings.url}
+        title={pantings.title}
+        profileUrl={pantings.author.url}
+        autor={pantings.author.tag}
+        price={pantings.price}
+      />
       {/* goit-react-traning-1 */}
     </div>
   );

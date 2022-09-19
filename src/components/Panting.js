@@ -1,13 +1,13 @@
-export default function Panting(props) {
+export default function Panting({ url, title, profileUrl, autor, price }) {
   return (
     <div>
-      <img src="" alt="" width="480" />
-      <h2></h2>
+      <img src={url} alt={title} width="480" />
+      <h2>{title}</h2>
       <p>
-        Автор: <a href=""></a>
+        Автор: <a href={profileUrl}>{autor}</a>
       </p>
-      <p>Цена: кредитов</p>
-      <p>Доступеость: В наличии или заканчивается</p>
+      <p>Цена: {price} кредитов</p>
+      <p>Доступность: В наличии или заканчивается</p>
       <button type="button"></button>
     </div>
   );
