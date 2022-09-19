@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { App } from 'components/App';
 import './index.css';
+import Panting from './components/Panting';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -11,28 +12,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
 //  ПРИМЕР ПЕРЕВОДИМ В ФУНКЦИЮ ===============================================
 
-// function Panting(props) {
-//   console.log(props);
-//   <div>
-//     <img src="" alt="" width="480" />
-//     <h2></h2>
-//     <p>
-//       Автор: <a href=""></a>
-//     </p>
-//     <p>Цена: кредитов</p>
-//     <p>Доступеость: В наличии или заканчивается</p>
-//     <button type="button"></button>
-//   </div>;
-// }
-
-// ReactDOM.createRoot(document.getElementById('root')).render(
-//   <React.StrictMode>
-//     <Panting />
-//   </React.StrictMode>
-// );
+ReactDOM.render(<App />, document.querySelector('#root'));
 //  ПРИМЕР  ===============================================
 
-//  ПРИМЕР ===============================================
+//  ПРИМЕР СТАРТОВОЙ РАЗМЕТКИ ===============================================
 
 // const data = {
 //   id: 'id-1',
