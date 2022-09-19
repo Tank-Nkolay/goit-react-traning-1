@@ -2,8 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { App } from 'components/App';
 import './index.css';
-import Panting from './components/Panting';
-import panting from './pantings.json';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
