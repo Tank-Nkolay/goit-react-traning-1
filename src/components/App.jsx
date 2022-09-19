@@ -1,3 +1,6 @@
+import Panting from './Panting';
+import pantings from '../index';
+
 export const App = () => {
   return (
     <div
@@ -10,7 +13,8 @@ export const App = () => {
         color: '#010101',
       }}
     >
-      goit-react-traning-1
+      <Panting />
+      {/* goit-react-traning-1 */}
     </div>
   );
 };
