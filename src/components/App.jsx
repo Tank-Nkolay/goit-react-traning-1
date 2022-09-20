@@ -2,7 +2,7 @@
 import Panting from './Panting';
 // импорт масива данных для разметки (для пропсов)
 import pantings from '../pantings.json';
-import { element } from 'prop-types';
+// import { element } from 'prop-types';
 
 export const App = () => {
   return (
@@ -18,10 +18,25 @@ export const App = () => {
       }}
     >
       {/* пример как рендарим масив в div*/}
-      {[1, 2, 3, 4, 5].map(el => (
+      {/* {[1, 2, 3, 4, 5].map(el => (
         <div>{el}</div>
+      ))} */}
+
+      {/* рендарим ВЕСЬ масив данных в разметку */}
+      {pantings.map(panting => (
+        <Panting
+          key={panting.id}
+          imgUrl={panting.url}
+          title={panting.title}
+          profileUrl={panting.author.url}
+          autor={panting.author.tag}
+          price={panting.price}
+          guantity={panting.guantity}
+        />
       ))}
-      <Panting
+
+      {/* пример как рендерить 1 элемент */}
+      {/* <Panting
         imgUrl={pantings[0].url}
         title={pantings[0].title}
         profileUrl={pantings[0].author.url}
@@ -44,7 +59,7 @@ export const App = () => {
         autor={pantings[2].author.tag}
         price={pantings[2].price}
         guantity={pantings[2].guantity}
-      />
+      /> */}
       {/* goit-react-traning-1 */}
     </div>
   );
