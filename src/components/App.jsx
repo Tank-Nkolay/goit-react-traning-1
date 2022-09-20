@@ -1,8 +1,8 @@
-// импорт функции разметки
-import PantingsList from './PantingsList';
 // импорт масива данных для разметки (для пропсов)
 import pantings from '../pantings.json';
-// import { element } from 'prop-types';
+// импорт функции разметки
+import PantingsList from './PantingsList';
+import Section from './Section';
 
 export const App = () => {
   return (
@@ -17,7 +17,13 @@ export const App = () => {
         color: '#010101',
       }}
     >
-      <PantingsList items={pantings} />
+      {/* секция с детьми */}
+      <Section title="Топ недели">
+        <PantingsList items={pantings} />
+      </Section>
+      <Section title="LINK">
+        <div>rrrrrrr</div>
+      </Section>
 
       {/* ПРИМЕР как рендарим масив в div*/}
       {/* {[1, 2, 3, 4, 5].map(el => (
