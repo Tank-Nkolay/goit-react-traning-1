@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import Panting from './Panting';
 
 export default function PantingsList({ items }) {
@@ -18,3 +19,13 @@ export default function PantingsList({ items }) {
     </ul>
   );
 }
+
+// проверяем приходящие данные. Должен прийти масив (array) и мы
+// описываем вложение масива/ Нам нужно - пришел масив, в нем есть id
+PantingsList.propTypes = {
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+    })
+  ),
+};
