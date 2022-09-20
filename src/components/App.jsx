@@ -1,5 +1,5 @@
 // импорт функции разметки
-import Panting from './Panting';
+import PantingsList from './PantingsList';
 // импорт масива данных для разметки (для пропсов)
 import pantings from '../pantings.json';
 // import { element } from 'prop-types';
@@ -17,13 +17,14 @@ export const App = () => {
         color: '#010101',
       }}
     >
-      {/* пример как рендарим масив в div*/}
+      <PantingsList items={pantings} />
+
+      {/* ПРИМЕР как рендарим масив в div*/}
       {/* {[1, 2, 3, 4, 5].map(el => (
         <div>{el}</div>
       ))} */}
-
-      {/* рендарим ВЕСЬ масив данных в разметку */}
-      {pantings.map(panting => (
+      {/* ПРИМЕР рендарим ВЕСЬ масив данных в разметку БЕЗ ДОП ФУНКЦИИ*/}
+      {/* {pantings.map(panting => (
         <Panting
           key={panting.id}
           imgUrl={panting.url}
@@ -33,9 +34,8 @@ export const App = () => {
           price={panting.price}
           guantity={panting.guantity}
         />
-      ))}
-
-      {/* пример как рендерить 1 элемент */}
+      ))} */}
+      {/* ПРИМЕР как рендерить 1 элемент */}
       {/* <Panting
         imgUrl={pantings[0].url}
         title={pantings[0].title}
