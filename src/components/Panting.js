@@ -11,16 +11,17 @@ export default function Panting({
   profileUrl,
   autor = 'не известно',
   price,
+  guantity,
 }) {
   return (
     <div>
-      <img src={imgUrl} alt={title} width="480" />
+      <img src={imgUrl} alt={title} width="180" />
       <h2>{title}</h2>
       <p>
         Автор: <a href={profileUrl}>{autor}</a>
       </p>
       <p>Цена: {price} кредитов</p>
-      <p>Доступность: В наличии или заканчивается</p>
+      <p>Доступность: {guantity < 10 ? 'заканчивается' : 'в наличии'}</p>
       <button type="button"></button>
     </div>
   );
@@ -33,4 +34,5 @@ Panting.propTypes = {
   profileUrl: PropTypes.string,
   autor: PropTypes.string,
   price: PropTypes.number,
+  guantity: PropTypes.number,
 };
