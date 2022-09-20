@@ -2,6 +2,7 @@
 import Panting from './Panting';
 // импорт масива данных для разметки (для пропсов)
 import pantings from '../pantings.json';
+import { element } from 'prop-types';
 
 export const App = () => {
   return (
@@ -16,6 +17,10 @@ export const App = () => {
         color: '#010101',
       }}
     >
+      {/* пример как рендарим масив в div*/}
+      {[1, 2, 3, 4, 5].map(el => (
+        <div>{el}</div>
+      ))}
       <Panting
         imgUrl={pantings[0].url}
         title={pantings[0].title}
