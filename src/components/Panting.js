@@ -27,12 +27,12 @@ export default function Panting({
   );
 }
 
-// проверяем значение которое приходит
+// проверяем значение которое приходит и обозначаем ОБЯЗАТЛЬНЫЕ ПРОПСЫ (isRequired)
 Panting.propTypes = {
-  imgUrl: PropTypes.string,
-  title: PropTypes.string,
-  profileUrl: PropTypes.string,
-  autor: PropTypes.string,
-  price: PropTypes.number,
-  guantity: PropTypes.number,
+  imgUrl: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  profileUrl: PropTypes.string.isRequired,
+  autor: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  guantity: PropTypes.number.isRequired,
 };
