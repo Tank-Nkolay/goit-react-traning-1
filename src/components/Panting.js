@@ -15,7 +15,7 @@ export default function Panting({
 }) {
   return (
     <div>
-      <img src={imgUrl} alt={title} width="180" />
+      <img src={imgUrl ?? defaultImg} alt={title} width="180" />
       <h2>{title}</h2>
       <p>
         Автор: <a href={profileUrl}>{autor}</a>
