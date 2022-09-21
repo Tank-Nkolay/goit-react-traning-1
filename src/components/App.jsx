@@ -1,5 +1,8 @@
 // импорт масива данных для разметки (для пропсов)
 import pantings from '../pantings.json';
+// для иконок
+import { FaBeer } from 'react-icons/fa';
+import { AiFillAudio } from 'react-icons/ai';
 // импорт функции разметки
 import PantingsList from './PantingsList';
 import Section from './Section';
@@ -23,6 +26,8 @@ export const App = () => {
       </Section>
       <Section title="LINK">
         <div>rrrrrrr</div>
+        <FaBeer />
+        <AiFillAudio />
       </Section>
 
       {/* ПРИМЕР как рендарим масив в div*/}
