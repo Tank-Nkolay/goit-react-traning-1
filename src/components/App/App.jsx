@@ -1,15 +1,17 @@
 // импорт масива данных для разметки (для пропсов)
-import pantings from '../pantings.json';
+import pantings from '../../pantings.json';
+// импорт ЕМОШИОН стилизация
+import { Container } from './App.styled';
 // для иконок
 import { FaBeer } from 'react-icons/fa';
 import { AiFillAudio } from 'react-icons/ai';
 // импорт функции разметки
-import PantingsList from './PantingsList';
-import Section from './Section';
+import PantingsList from '../PantingsList';
+import Section from '../Section';
 
 export const App = () => {
   return (
-    <div
+    <Container
       style={{
         height: '100vh',
         // display: 'flex',
@@ -72,6 +74,6 @@ export const App = () => {
         guantity={pantings[2].guantity}
       /> */}
       {/* goit-react-traning-1 */}
-    </div>
+    </Container>
   );
 };
