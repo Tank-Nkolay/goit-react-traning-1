@@ -18,7 +18,9 @@ export default function Panting({
   return (
     <Container>
       <img src={imgUrl ?? defaultImg} alt={title} width="180" />
-      <Title>{title}</Title>
+      <Title type={5} a={false} b={false}>
+        {title}
+      </Title>
       <p>
         Автор: <a href={profileUrl}>{autor}</a>
       </p>
@@ -30,11 +32,11 @@ export default function Panting({
 }
 
 // проверяем значение которое приходит и обозначаем ОБЯЗАТЛЬНЫЕ ПРОПСЫ (isRequired)
-Panting.propTypes = {
-  imgUrl: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  profileUrl: PropTypes.string.isRequired,
-  autor: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired,
-  guantity: PropTypes.number.isRequired,
-};
+// Panting.propTypes = {
+//   imgUrl: PropTypes.string.isRequired,
+//   title: PropTypes.string.isRequired,
+//   profileUrl: PropTypes.string.isRequired,
+//   autor: PropTypes.string.isRequired,
+//   price: PropTypes.number.isRequired,
+//   guantity: PropTypes.number.isRequired,
+// };
