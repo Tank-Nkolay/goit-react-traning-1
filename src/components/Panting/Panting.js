@@ -18,7 +18,7 @@ export default function Panting({
   return (
     <Container>
       <img src={imgUrl ?? defaultImg} alt={title} width="180" />
-      <Title type={5} a={false} b={false}>
+      <Title type={5} a={true} b={false}>
         {title}
       </Title>
       <p>

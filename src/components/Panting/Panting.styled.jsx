@@ -8,11 +8,12 @@ export const Container = styled.div`
 // ====================================================
 
 // вариант с выносом условия в функцию
-const setColor = props => {
-  switch (props.a) {
+// деструкторизировали props в 'a" и добавили деструкторизированную theme. ПОЛЬЗУЕМ
+const setColor = ({ a, theme }) => {
+  switch (a) {
     case true:
       // color green
-      return 'rgb(16, 154, 55)';
+      return theme.colors.green;
     // color red
     case false:
       return 'rgb(218, 22, 22)';
