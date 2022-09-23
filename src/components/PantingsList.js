@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import Panting from './Panting';
+import Panting from './Panting/Panting';
 
 export default function PantingsList({ items }) {
   return (

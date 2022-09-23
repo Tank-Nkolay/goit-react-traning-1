@@ -1,7 +1,9 @@
 // импорт библиотеки протайпс (проверка)
 import PropTypes from 'prop-types';
 // импорт дефолтной картинки
-import defaultImg from '../default.jpg';
+import defaultImg from '../../default.jpg';
+// ипорт стилей с библитоеки ЕМОУШН и настройка их
+import { Container, Title } from './Panting.styled';
 
 // функция которая задает разметку
 export default function Panting({
@@ -14,16 +16,16 @@ export default function Panting({
   guantity,
 }) {
   return (
-    <div>
+    <Container>
       <img src={imgUrl ?? defaultImg} alt={title} width="180" />
-      <h2>{title}</h2>
+      <Title>{title}</Title>
       <p>
         Автор: <a href={profileUrl}>{autor}</a>
       </p>
       <p>Цена: {price} кредитов</p>
       <p>Доступность: {guantity < 10 ? 'заканчивается' : 'в наличии'}</p>
       <button type="button"></button>
-    </div>
+    </Container>
   );
 }
 
