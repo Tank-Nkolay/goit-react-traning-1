@@ -1,7 +1,8 @@
 import styled from '@emotion/styled';
 
+// применяем цвет как ШАБЛОН
 export const Container = styled.div`
-  background-color: #aaa;
+  background-color: ${props => props.theme.colors.gray};
 `;
 
 // функция управления локальным ПРОПС на элементе разметки
@@ -12,7 +13,7 @@ export const Container = styled.div`
 const setColor = ({ a, theme }) => {
   switch (a) {
     case true:
-      // color green
+      // color green взятый из ШАБЛОНА
       return theme.colors.green;
     // color red
     case false:
@@ -24,7 +25,7 @@ const setColor = ({ a, theme }) => {
   }
 };
 // ====================================================
-
+// получаем цвет через функцию
 export const Title = styled.h2`
   font-size: 48px;
   color: ${setColor};
