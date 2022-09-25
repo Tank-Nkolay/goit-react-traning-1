@@ -1,5 +1,6 @@
 // импорт масива данных для разметки (для пропсов)
 import pantings from '../../Json/pantings.json';
+import recipes from '../../Json/recipes.json';
 // импорт ЕМОШИОН стилизация
 import { Container } from './App.styled';
 // для иконок
@@ -33,7 +34,7 @@ export const App = () => {
         <AiFillAudio />
       </Section>
       <Section>
-        <ToDoIcons />
+        <ToDoIcons recipe={recipes[0]} />
       </Section>
 
       {/* ПРИМЕР как рендарим масив в div*/}

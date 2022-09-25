@@ -1,21 +1,23 @@
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
-export default function ToDoIcons({}) {
+export default function ToDoIcons({
+  recipe: { name, time, servings, calories },
+}) {
   return (
     <article>
-      <h2>Recipe name</h2>
+      <h2>{name}</h2>
       <div>
         <div>
           <span>Icon</span>
-          <p>30 min</p>
+          <p>{time} min</p>
         </div>
         <div>
           <span>Icon</span>
-          <p>6 servings</p>
+          <p>{servings} servings</p>
         </div>
         <div>
           <span>Icon</span>
-          <p>210 calories</p>
+          <p>{calories} calories</p>
         </div>
       </div>
     </article>
