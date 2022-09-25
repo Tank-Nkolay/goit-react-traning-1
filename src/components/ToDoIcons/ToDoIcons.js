@@ -11,7 +11,7 @@ import {
 } from './ToDoIcons.styled';
 
 export default function ToDoIcons({
-  recipe: { name, time, servings, calories },
+  recipe: { name, time, servings, calories, difficulty },
 }) {
   return (
     <Card>
@@ -40,5 +40,7 @@ ToDoIcons.propTypes = {
     time: PropTypes.string.isRequired,
     servings: PropTypes.number.isRequired,
     calories: PropTypes.number.isRequired,
+    // жосткий ПРОПС, ожидаем только эти значения
+    difficulty: PropTypes.oneOf(['easy', 'medium', 'hard']),
   }),
 };

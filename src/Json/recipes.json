@@ -1,6 +1,7 @@
 [
   {
     "name": "one",
+    "difficulty": "easy",
     "time": "20",
     "servings": 6,
     "calories": 210,
@@ -9,6 +10,7 @@
 
   {
     "name": "two",
+    "difficulty": "hard",
     "time": "15",
     "servings": 3,
     "calories": 600,
@@ -17,6 +19,7 @@
 
   {
     "name": "three",
+    "difficulty": "medium",
     "time": "30",
     "servings": 2,
     "calories": 320,
@@ -25,6 +28,7 @@
 
   {
     "name": "four",
+    "difficulty": "easy",
     "time": "25",
     "servings": 8,
     "calories": 420,
