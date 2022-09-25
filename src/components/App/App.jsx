@@ -9,7 +9,7 @@ import { AiFillAudio } from 'react-icons/ai';
 // импорт функции разметки
 import PantingsList from '../PantingsList';
 import Section from '../Section';
-import ToDoIcons from '../ToDoIcons/ToDoIcons';
+import ToDoIconsList from '../ToDoIcons/ToDoIconsList';
 
 export const App = () => {
   return (
@@ -34,7 +34,7 @@ export const App = () => {
         <AiFillAudio />
       </Section>
       <Section>
-        <ToDoIcons recipe={recipes[0]} />
+        <ToDoIconsList recipes={recipes} />
       </Section>
 
       {/* ПРИМЕР как рендарим масив в div*/}
