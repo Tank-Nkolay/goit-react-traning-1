@@ -17,7 +17,7 @@ export const InfoContainer = styled.div`
   align-items: center;
   gap: 16px;
   padding: 8px;
-  margin-bottom: 20px;
+
   border-radius: 6px;
   border: 1px solid black;
 `;
@@ -34,4 +34,14 @@ export const InfoBlock = styled.div`
 
 export const Label = styled.p`
   margin: 0;
+`;
+
+export const DiffWraper = styled.section`
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid black;
+`;
+
+export const DiffTitle = styled.h3`
+  margin-top: 0;
 `;

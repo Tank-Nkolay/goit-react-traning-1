@@ -8,6 +8,8 @@ import {
   InfoContainer,
   InfoBlock,
   Label,
+  DiffWraper,
+  DiffTitle,
 } from './ToDoIcons.styled';
 
 export default function ToDoIcons({
@@ -30,6 +32,14 @@ export default function ToDoIcons({
           <Label>{calories} calories</Label>
         </InfoBlock>
       </InfoContainer>
+      <DiffWraper>
+        <DiffTitle>Difficulty</DiffTitle>
+        <div>
+          <div>Easy</div>
+          <div>Medium</div>
+          <div>Hard</div>
+        </div>
+      </DiffWraper>
     </Card>
   );
 }
