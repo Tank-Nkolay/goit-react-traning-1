@@ -1,5 +1,5 @@
 // импорт масива данных для разметки (для пропсов)
-import pantings from '../../pantings.json';
+import pantings from '../../Json/pantings.json';
 // импорт ЕМОШИОН стилизация
 import { Container } from './App.styled';
 // для иконок
@@ -8,12 +8,13 @@ import { AiFillAudio } from 'react-icons/ai';
 // импорт функции разметки
 import PantingsList from '../PantingsList';
 import Section from '../Section';
+import ToDoIcons from '../ToDoIcons/ToDoIcons';
 
 export const App = () => {
   return (
     <Container
       style={{
-        height: '100vh',
+        // height: '100vh',
         // display: 'flex',
         marginLeft: '100px',
         justifyContent: 'center',
@@ -30,6 +31,9 @@ export const App = () => {
         <div>rrrrrrr</div>
         <FaBeer />
         <AiFillAudio />
+      </Section>
+      <Section>
+        <ToDoIcons />
       </Section>
 
       {/* ПРИМЕР как рендарим масив в div*/}
