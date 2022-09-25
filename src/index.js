@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+// обязательно для ШАБЛОНЫ и потом обертка ThemeProvider
 import { ThemeProvider } from '@emotion/react';
 import { App } from 'components/App/App';
 import './index.css';
