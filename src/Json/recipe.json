@@ -4,30 +4,22 @@
     "time": "20",
     "servings": 6,
     "calories": 210,
-    "image": 15
+    "image": "https://cdn-icons-png.flaticon.com/512/1998/1998592.png"
   },
 
   {
-    "id": "id-2",
-    "url": "https://cdn-icons-png.flaticon.com/512/2922/2922506.png",
-    "title": "Art Paint",
-    "price": 300,
-    "author": {
-      "tag": "Sea",
-      "url": "https://pixabay.com/ru/"
-    },
-    "guantity": 5
+    "name": "two",
+    "time": "15",
+    "servings": 3,
+    "calories": 600,
+    "image": "https://cdn-icons-png.flaticon.com/512/616/616438.png"
   },
 
   {
-    "id": "id-3",
-    "url": "https://cdn-icons-png.flaticon.com/512/2922/2922506.png",
-    "title": "Art Squer",
-    "price": 100,
-    "author": {
-      "tag": "Cube",
-      "url": "https://pixabay.com/ru/"
-    },
-    "guantity": 12
+    "name": "three",
+    "time": "30",
+    "servings": 2,
+    "calories": 320,
+    "image": "https://cdn-icons-png.flaticon.com/512/1623/1623681.png"
   }
 ]
