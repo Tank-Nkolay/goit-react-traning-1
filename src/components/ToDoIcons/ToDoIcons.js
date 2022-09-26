@@ -10,6 +10,8 @@ import {
   Label,
   DiffWraper,
   DiffTitle,
+  BedgeList,
+  Bedge,
 } from './ToDoIcons.styled';
 
 export default function ToDoIcons({
@@ -34,11 +36,11 @@ export default function ToDoIcons({
       </InfoContainer>
       <DiffWraper>
         <DiffTitle>Difficulty</DiffTitle>
-        <div>
-          <div>Easy</div>
-          <div>Medium</div>
-          <div>Hard</div>
-        </div>
+        <BedgeList>
+          <Bedge>Easy</Bedge>
+          <Bedge>Medium</Bedge>
+          <Bedge>Hard</Bedge>
+        </BedgeList>
       </DiffWraper>
     </Card>
   );
