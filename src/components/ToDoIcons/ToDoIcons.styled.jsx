@@ -59,6 +59,9 @@ export const Bedge = styled.p`
   border-radius: 8px;
 
   background-color: ${p => {
-    return p.selected ? '#e34444' : '#ffffff';
+    return p.selected ? '#e37c44' : '#ffffff';
+  }};
+  color: ${p => {
+    return p.selected ? '#ffffff' : '#000000';
   }};
 `;
