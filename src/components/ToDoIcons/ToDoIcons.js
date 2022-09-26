@@ -37,9 +37,9 @@ export default function ToDoIcons({
       <DiffWraper>
         <DiffTitle>Difficulty</DiffTitle>
         <BedgeList>
-          <Bedge>Easy</Bedge>
-          <Bedge>Medium</Bedge>
-          <Bedge>Hard</Bedge>
+          <Bedge selected={false}>Easy</Bedge>
+          <Bedge selected={true}>Medium</Bedge>
+          <Bedge selected={false}>Hard</Bedge>
         </BedgeList>
       </DiffWraper>
     </Card>

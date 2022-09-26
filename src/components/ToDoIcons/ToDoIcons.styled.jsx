@@ -57,4 +57,8 @@ export const Bedge = styled.p`
   padding: 8px 12px;
   border: 1px solid black;
   border-radius: 8px;
+
+  background-color: ${p => {
+    return p.selected ? '#e34444' : '#ffffff';
+  }};
 `;
