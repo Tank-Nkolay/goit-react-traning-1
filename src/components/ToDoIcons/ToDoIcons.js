@@ -14,6 +14,13 @@ import {
   Bedge,
 } from './ToDoIcons.styled';
 
+// выносим значения в константу и морозим, чтобы нельзя было изменить ее
+const recipeDifficulties = Object.freeze({
+  easy: 'easy',
+  medium: 'medium',
+  hard: 'hard',
+});
+
 export default function ToDoIcons({
   recipe: { name, time, servings, calories, difficulty },
 }) {
@@ -37,9 +44,11 @@ export default function ToDoIcons({
       <DiffWraper>
         <DiffTitle>Difficulty</DiffTitle>
         <BedgeList>
-          <Bedge selected={difficulty === 'easy'}>Easy</Bedge>
-          <Bedge selected={difficulty === 'medium'}>Medium</Bedge>
-          <Bedge selected={difficulty === 'hard'}>Hard</Bedge>
+          <Bedge selected={difficulty === recipeDifficulties.easy}>Easy</Bedge>
+          <Bedge selected={difficulty === recipeDifficulties.medium}>
+            Medium
+          </Bedge>
+          <Bedge selected={difficulty === recipeDifficulties.hard}>Hard</Bedge>
         </BedgeList>
       </DiffWraper>
     </Card>
