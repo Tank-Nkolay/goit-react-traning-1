@@ -1,9 +1,4 @@
-import {
-  DiffWraper,
-  DiffTitle,
-  BedgeList,
-  Bedge,
-} from './RecipeDificulties.styled';
+import { Wraper, Title, BedgeList, Bedge } from './RecipeDificulties.styled';
 
 // выносим значения в константу и морозим, чтобы нельзя было изменить ее
 const recipeDifficulties = Object.freeze({
@@ -14,8 +9,8 @@ const recipeDifficulties = Object.freeze({
 
 export const RecipeDificulties = ({ difficulty }) => {
   return (
-    <DiffWraper>
-      <DiffTitle>Difficulty</DiffTitle>
+    <Wraper>
+      <Title>Difficulty</Title>
       <BedgeList>
         <Bedge selected={difficulty === recipeDifficulties.easy}>Easy</Bedge>
         <Bedge selected={difficulty === recipeDifficulties.medium}>
@@ -23,6 +18,6 @@ export const RecipeDificulties = ({ difficulty }) => {
         </Bedge>
         <Bedge selected={difficulty === recipeDifficulties.hard}>Hard</Bedge>
       </BedgeList>
-    </DiffWraper>
+    </Wraper>
   );
 };

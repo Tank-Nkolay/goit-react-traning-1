@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
-export const DiffWraper = styled.section`
+export const Wraper = styled.section`
   padding: 8px;
   border-radius: 6px;
   border: 1px solid black;
 `;
 
-export const DiffTitle = styled.h3`
+export const Title = styled.h3`
   margin-top: 0;
 `;
 
