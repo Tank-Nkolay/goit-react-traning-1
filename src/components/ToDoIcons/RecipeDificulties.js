@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Wraper, Title, BedgeList, Bedge } from './RecipeDificulties.styled';
 
 // выносим значения в константу и морозим, чтобы нельзя было изменить ее
@@ -20,4 +21,11 @@ export const RecipeDificulties = ({ difficulty }) => {
       </BedgeList>
     </Wraper>
   );
+};
+
+RecipeDificulties.propTypes = {
+  RecipeDificulties: PropTypes.shape({
+    // жосткий ПРОПС, ожидаем только эти значения
+    difficulty: PropTypes.oneOf(['easy', 'medium', 'hard']),
+  }),
 };

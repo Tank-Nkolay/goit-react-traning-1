@@ -37,13 +37,11 @@ export default function ToDoIcons({
   );
 }
 
-// ToDoIcons.propTypes = {
-//   recipe: PropTypes.shape({
-//     name: PropTypes.string.isRequired,
-//     time: PropTypes.string.isRequired,
-//     servings: PropTypes.number.isRequired,
-//     calories: PropTypes.number.isRequired,
-//     // жосткий ПРОПС, ожидаем только эти значения
-//     difficulty: PropTypes.oneOf(['easy', 'medium', 'hard']),
-//   }),
-// };
+ToDoIcons.propTypes = {
+  recipe: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    time: PropTypes.string.isRequired,
+    servings: PropTypes.number.isRequired,
+    calories: PropTypes.number.isRequired,
+  }),
+};
