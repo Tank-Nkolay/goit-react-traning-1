@@ -2,7 +2,7 @@
 import PropTypes from 'prop-types';
 // импорт дефолтной картинки
 import defaultImg from '../../default.jpg';
-// ипорт стилей с библитоеки ЕМОУШН и настройка их
+// ипорт стилей
 import { Container, Title } from './Panting.styled';
 
 // функция которая задает разметку
@@ -32,11 +32,11 @@ export default function Panting({
 }
 
 // проверяем значение которое приходит и обозначаем ОБЯЗАТЛЬНЫЕ ПРОПСЫ (isRequired)
-// Panting.propTypes = {
-//   imgUrl: PropTypes.string.isRequired,
-//   title: PropTypes.string.isRequired,
-//   profileUrl: PropTypes.string.isRequired,
-//   autor: PropTypes.string.isRequired,
-//   price: PropTypes.number.isRequired,
-//   guantity: PropTypes.number.isRequired,
-// };
+Panting.propTypes = {
+  imgUrl: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  profileUrl: PropTypes.string.isRequired,
+  autor: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  guantity: PropTypes.number.isRequired,
+};

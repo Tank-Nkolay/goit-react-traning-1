@@ -7,9 +7,10 @@ import { Container } from './App.styled';
 import { FaBeer } from 'react-icons/fa';
 import { AiFillAudio } from 'react-icons/ai';
 // импорт функции разметки
-import PantingsList from '../PantingsList';
+import PantingsList from '../Panting/PantingsList';
 import Section from '../Section';
 import ToDoIconsList from '../ToDoIcons/ToDoIconsList';
+import Counter from '../Counter/Counter';
 
 export const App = () => {
   return (
@@ -35,6 +36,7 @@ export const App = () => {
       </Section>
       <Section>
         <ToDoIconsList recipes={recipes} />
+        <Counter />
       </Section>
 
       {/* ПРИМЕР как рендарим масив в div*/}

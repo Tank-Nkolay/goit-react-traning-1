@@ -18,7 +18,6 @@ const setColor = ({ a, theme }) => {
     // color red
     case false:
       return 'rgb(218, 22, 22)';
-
     // на всякий случай дефолтный цвет
     default:
       return 'rgb(218, 22, 22)';
