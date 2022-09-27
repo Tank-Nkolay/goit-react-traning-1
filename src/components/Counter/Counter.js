@@ -12,18 +12,22 @@ class Counter extends React.Component {
   // ========================
   // новый вариант через БАБЕЛЬ
   state = {
-    value: 6,
+    value: 0,
   };
   // ========================
 
-  //   функция увеличения числа
+  //   функция изменения числа ( СЧЕТЧИК + ) вместо prevState, можно например e
   handleIncrimente = () => {
-    this.setState({
-      value: 10,
+    this.setState(prevState => {
+      return { value: prevState.value + 1 };
     });
   };
   //   функция уменьшения числа
-  handleDecremente = () => {};
+  handleDecremente = () => {
+    this.setState(prevState => {
+      return { value: prevState.value - 1 };
+    });
+  };
 
   render() {
     return (
@@ -64,5 +68,13 @@ export default Counter;
 // handleDecremente = e => {
 //   console.log('We cliked less');
 //   console.log(e);
+// };
+// ============================================================================
+
+//   функция изменения числа ( ПЕРЕЗАПИСЫВАЕМ )
+// handleIncrimente = () => {
+//   this.setState({
+//     value: 10,
+//   });
 // };
 // ============================================================================
