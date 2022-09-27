@@ -1,4 +1,5 @@
 import React from 'react';
+import Controls from './Controls';
 
 // пример компонент класса
 class Counter extends React.Component {
@@ -28,18 +29,15 @@ class Counter extends React.Component {
     }));
   };
 
+  // выносим часть разметки и связываем ее через ПРОПС
   render() {
     return (
       <div>
         <span>{this.state.value}</span>
-        <div>
-          <button type="button" onClick={this.handleIncrimente}>
-            Увеличить на 1
-          </button>
-          <button type="button" onClick={this.handleDecremente}>
-            Уменьшить на 1
-          </button>
-        </div>
+        <Controls
+          onIncrimente={this.handleIncrimente}
+          onDecremente={this.handleDecremente}
+        />
       </div>
     );
   }
