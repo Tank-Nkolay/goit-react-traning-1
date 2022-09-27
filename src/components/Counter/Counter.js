@@ -4,14 +4,14 @@ import React from 'react';
 class Counter extends React.Component {
   // сделали публичное свойство класса
   //   функция увеличения числа
-  handleIncrimente = () => {
+  handleIncrimente = e => {
     console.log('We cliked more');
-    console.log(this);
+    console.log(e.target);
   };
   //   функция уменьшения числа
-  handleDecremente = () => {
+  handleDecremente = e => {
     console.log('We cliked less');
-    console.log(this);
+    console.log(e);
   };
 
   render() {
