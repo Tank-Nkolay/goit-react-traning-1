@@ -2,8 +2,15 @@ import React from 'react';
 
 // пример компонент класса
 class Counter extends React.Component {
+  // сделали публичное свойство класса
+  //   функция увеличения числа
   handleIncrimente = () => {
     console.log('We cliked more');
+    console.log(this);
+  };
+  //   функция уменьшения числа
+  handleDecremente = () => {
+    console.log('We cliked less');
     console.log(this);
   };
 
@@ -15,12 +22,7 @@ class Counter extends React.Component {
           <button type="button" onClick={this.handleIncrimente}>
             Увеличить на 1
           </button>
-          <button
-            type="button"
-            onClick={() => {
-              console.log('We cliked less');
-            }}
-          >
+          <button type="button" onClick={this.handleDecremente}>
             Уменьшить на 1
           </button>
         </div>
