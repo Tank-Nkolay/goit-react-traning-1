@@ -2,19 +2,18 @@ import React from 'react';
 
 // пример компонент класса
 class Counter extends React.Component {
-  // КЛАСИЧЕСКИЙ СТАРЫЙ вариант ======
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     value: 5,
-  //   };
-  // }
-  // ========================
-  // новый вариант через БАБЕЛЬ
-  state = {
-    value: 0,
+  // ДЕФОЛТНОЕ значение ПРОПС
+  static defaultProps = {
+    initialValue: 5,
   };
-  // ========================
+  static propTypes = {
+    //
+  };
+
+  // Передаем стартовое значение через ПРОПС, новый вариант через БАБЕЛЬ
+  state = {
+    value: this.props.initialValue,
+  };
 
   //   функция изменения числа ( СЧЕТЧИК + ) вместо prevState, можно например e
   handleIncrimente = () => {
@@ -54,6 +53,14 @@ export default Counter;
 // варианты собыий в ДОКАХ
 // onClick, onSubmit, onChange, onMouseNove
 
+// ========================
+// КЛАСИЧЕСКИЙ СТАРЫЙ вариант ======
+// constructor() {
+//   super();
+//   this.state = {
+//     value: 5,
+//   };
+// }
 // сделали публичное свойство класса ========================================
 //   функция увеличения числа
 // handleIncrimente = e => {

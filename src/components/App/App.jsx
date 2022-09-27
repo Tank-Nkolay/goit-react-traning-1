@@ -36,7 +36,7 @@ export const App = () => {
       </Section>
       <Section>
         <ToDoIconsList recipes={recipes} />
-        <Counter />
+        <Counter initialValue={10} />
       </Section>
 
       {/* ПРИМЕР как рендарим масив в div*/}
