@@ -2,22 +2,33 @@ import React from 'react';
 
 // пример компонент класса
 class Counter extends React.Component {
-  // сделали публичное свойство класса
+  // КЛАСИЧЕСКИЙ СТАРЫЙ вариант ======
+  // constructor() {
+  //   super();
+  //   this.state = {
+  //     value: 5,
+  //   };
+  // }
+  // ========================
+  // новый вариант через БАБЕЛЬ
+  state = {
+    value: 6,
+  };
+  // ========================
+
   //   функция увеличения числа
-  handleIncrimente = e => {
-    console.log('We cliked more');
-    console.log(e.target);
+  handleIncrimente = () => {
+    this.setState({
+      value: 10,
+    });
   };
   //   функция уменьшения числа
-  handleDecremente = e => {
-    console.log('We cliked less');
-    console.log(e);
-  };
+  handleDecremente = () => {};
 
   render() {
     return (
       <div>
-        <span>0</span>
+        <span>{this.state.value}</span>
         <div>
           <button type="button" onClick={this.handleIncrimente}>
             Увеличить на 1
@@ -38,3 +49,20 @@ export default Counter;
 // синтаксис onСобытие
 // варианты собыий в ДОКАХ
 // onClick, onSubmit, onChange, onMouseNove
+
+// сделали публичное свойство класса ========================================
+//   функция увеличения числа
+// handleIncrimente = e => {
+//   console.log('We cliked more');
+// пример как использовать событие event при асинхронном коде
+// const { target } = e;
+// setTimeout(() => {
+//   console.log(target);
+// }, 1000);
+// };
+//   функция уменьшения числа
+// handleDecremente = e => {
+//   console.log('We cliked less');
+//   console.log(e);
+// };
+// ============================================================================
