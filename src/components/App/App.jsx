@@ -11,6 +11,7 @@ import PantingsList from '../Panting/PantingsList';
 import Section from '../Section';
 import ToDoIconsList from '../ToDoIcons/ToDoIconsList';
 import Counter from '../Counter/Counter';
+import Dropdown from '../Dropdown/Dropdown';
 
 export const App = () => {
   return (
@@ -25,7 +26,9 @@ export const App = () => {
         color: '#010101',
       }}
     >
-      {/* секция с детьми */}
+      <Section>
+        <Dropdown />
+      </Section>
       <Section title="Топ недели">
         <PantingsList items={pantings} />
       </Section>
@@ -38,7 +41,6 @@ export const App = () => {
         <ToDoIconsList recipes={recipes} />
         <Counter initialValue={10} />
       </Section>
-
       {/* ПРИМЕР как рендарим масив в div*/}
       {/* {[1, 2, 3, 4, 5].map(el => (
         <div>{el}</div>
