@@ -1,15 +1,20 @@
 import React from 'react';
-import { Box, Card, Span } from './ColorPicker.styled';
+import { Box, Card, Button } from './ColorPicker.styled';
 
-const ColorPicker = ({ options }) => (
-  <Box>
-    <h2>Color picker</h2>
-    <Card>
-      {options.map(({ label, color }) => (
-        <Span key={label} style={{ backgroundColor: color }}></Span>
-      ))}
-    </Card>
-  </Box>
-);
+class ColorPicker extends React.Component {
+  render() {
+    return (
+      <Box>
+        <h2>Color picker</h2>
+        {/* this.props.options достукиваемся до ПРОПС */}
+        <Card>
+          {this.props.options.map(({ label, color }) => (
+            <Button key={label} style={{ backgroundColor: color }}></Button>
+          ))}
+        </Card>
+      </Box>
+    );
+  }
+}
 
 export default ColorPicker;

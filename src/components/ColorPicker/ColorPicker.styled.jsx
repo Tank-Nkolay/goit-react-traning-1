@@ -8,8 +8,10 @@ export const Card = styled.div`
   display: flex;
 `;
 
-export const Span = styled.span`
+export const Button = styled.button`
+  display: inline-block;
   margin-right: 20px;
   width: 200px;
   height: 200px;
+  cursor: pointer;
 `;
