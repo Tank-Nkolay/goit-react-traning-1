@@ -1,6 +1,7 @@
 // импорт масива данных для разметки (для пропсов)
 import pantings from '../../Json/pantings.json';
 import recipes from '../../Json/recipes.json';
+import colorPickerOptions from '../../Json/colorPicker.json';
 // импорт ЕМОШИОН стилизация
 import { Container } from './App.styled';
 // для иконок
@@ -12,6 +13,7 @@ import Section from '../Section';
 import ToDoIconsList from '../ToDoIcons/ToDoIconsList';
 import Counter from '../Counter/Counter';
 import Dropdown from '../Dropdown/Dropdown';
+import ColorPicker from '../ColorPicker/ColorPicker';
 
 export const App = () => {
   return (
@@ -27,6 +29,7 @@ export const App = () => {
       }}
     >
       <Section>
+        <ColorPicker options={colorPickerOptions} />
         <Dropdown />
       </Section>
       <Section title="Топ недели">
