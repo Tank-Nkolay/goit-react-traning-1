@@ -2,6 +2,7 @@
 import pantings from '../../Json/pantings.json';
 import recipes from '../../Json/recipes.json';
 import colorPickerOptions from '../../Json/colorPicker.json';
+import todos from '../../Json/todolist.json';
 // импорт ЕМОШИОН стилизация
 import { Container } from './App.styled';
 // для иконок
@@ -18,20 +19,9 @@ import ToDoList from '../ToDoList';
 
 export const App = () => {
   return (
-    <Container
-      style={{
-        // height: '100vh',
-        // display: 'flex',
-        marginLeft: '100px',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 20,
-        color: '#010101',
-      }}
-    >
-      {' '}
-      <Section>
-        <ToDoList />
+    <Container>
+      <Section title="To Do List">
+        <ToDoList todos={todos} />
       </Section>
       <Section>
         <ColorPicker options={colorPickerOptions} />
