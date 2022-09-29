@@ -1,0 +1,7 @@
+[
+  { "id": "id-1", "text": "дело-1", "completed": false },
+  { "id": "id-2", "text": "дело-2", "completed": false },
+  { "id": "id-3", "text": "дело-3", "completed": false },
+  { "id": "id-4", "text": "дело-4", "completed": false },
+  { "id": "id-5", "text": "дело-5", "completed": false }
+]
