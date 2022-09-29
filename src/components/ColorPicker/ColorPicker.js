@@ -3,25 +3,34 @@ import { Box, Card, Button } from './ColorPicker.styled';
 
 class ColorPicker extends React.Component {
   state = {
-    activeOptionsIdx: 3,
+    activeOptionsIdx: 1,
+  };
+
+  //   функция выделения при клике
+  setActiveIdx = index => {
+    this.setState({ activeOptionsIdx: index });
   };
 
   render() {
+    const { label } = this.props.options[this.state.activeOptionsIdx];
+
     return (
       <Box>
         <h2>Color picker</h2>
+        <p>Выбран цвет: {label}</p>
         {/* this.props.options достукиваемся до ПРОПС */}
         <Card>
-          {this.props.options.map(({ label, color }, index) => {
-            return (
-              <Button
-                key={label}
-                style={{
-                  backgroundColor: color,
-                }}
-              ></Button>
-            );
-          })}
+          {this.props.options.map(({ label, color }, index) => (
+            <Button
+              key={label}
+              style={{
+                backgroundColor: color,
+                transform:
+                  index === this.state.activeOptionsIdx ? 'scale(1.2)' : 'none',
+              }}
+              onClick={() => this.setActiveIdx(index)}
+            ></Button>
+          ))}
         </Card>
       </Box>
     );
@@ -41,3 +50,12 @@ style={{
       : 'none',
 }}
 ></Button>  */
+
+// функция под разметку css
+// makeClassName = index => {
+//     const optionClasses = ['ColorPicker__option'];
+//     if (index === this.state.activeOptionsIdx) {
+//       optionClasses.push('ColorPicker__option--active');
+//     }
+//     return optionClasses.join(' ');
+//   };
