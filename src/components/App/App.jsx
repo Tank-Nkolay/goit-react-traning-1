@@ -14,6 +14,7 @@ import ToDoIconsList from '../ToDoIcons/ToDoIconsList';
 import Counter from '../Counter/Counter';
 import Dropdown from '../Dropdown';
 import ColorPicker from '../ColorPicker';
+import ToDoList from '../ToDoList';
 
 export const App = () => {
   return (
@@ -28,6 +29,10 @@ export const App = () => {
         color: '#010101',
       }}
     >
+      {' '}
+      <Section>
+        <ToDoList />
+      </Section>
       <Section>
         <ColorPicker options={colorPickerOptions} />
         <Dropdown />
