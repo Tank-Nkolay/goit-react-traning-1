@@ -12,6 +12,7 @@ class ColorPicker extends React.Component {
   };
 
   render() {
+    // деструкторизируем label и забираем его из значения с учетом индекса
     const { label } = this.props.options[this.state.activeOptionsIdx];
 
     return (

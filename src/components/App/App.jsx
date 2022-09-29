@@ -12,8 +12,8 @@ import PantingsList from '../Panting/PantingsList';
 import Section from '../Section';
 import ToDoIconsList from '../ToDoIcons/ToDoIconsList';
 import Counter from '../Counter/Counter';
-import Dropdown from '../Dropdown/Dropdown';
-import ColorPicker from '../ColorPicker/ColorPicker';
+import Dropdown from '../Dropdown';
+import ColorPicker from '../ColorPicker';
 
 export const App = () => {
   return (
