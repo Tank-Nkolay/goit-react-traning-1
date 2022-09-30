@@ -19,7 +19,7 @@ class ToDoList extends React.Component {
     }));
   };
   //   метод показать законченные задачи true
-  completedTodos = this.state.todos.reduce(
+  completedTodosCount = this.state.todos.reduce(
     (acc, todo) => (todo.completed ? acc + 1 : acc),
     0
   );
@@ -29,7 +29,7 @@ class ToDoList extends React.Component {
       <Container>
         <div>
           <p>Общее количество задач: {this.state.todos.length}</p>
-          <p>Количество выполненных задач: {this.completedTodos}</p>
+          <p>Количество выполненных задач: {this.completedTodosCount}</p>
         </div>
         {this.state.todos.map(({ id, text }) => (
           <Li key={id}>
