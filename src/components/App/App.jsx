@@ -16,10 +16,14 @@ import Counter from '../Counter/Counter';
 import Dropdown from '../Dropdown';
 import ColorPicker from '../ColorPicker';
 import ToDoList from '../ToDoList';
+import Input from '../Input';
 
 export const App = () => {
   return (
     <Container>
+      <Section title="INPUT">
+        <Input />
+      </Section>
       <Section title="To Do List">
         <ToDoList />
       </Section>

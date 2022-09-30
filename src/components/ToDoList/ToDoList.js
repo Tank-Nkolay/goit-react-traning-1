@@ -43,5 +43,3 @@ class ToDoList extends React.Component {
 }
 
 export default ToDoList;
-
-// onClick={() => this.onDeleteTodo(id)}
