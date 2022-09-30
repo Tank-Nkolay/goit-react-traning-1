@@ -2,7 +2,7 @@
 import pantings from '../../Json/pantings.json';
 import recipes from '../../Json/recipes.json';
 import colorPickerOptions from '../../Json/colorPicker.json';
-import todos from '../../Json/todolist.json';
+// import todos from '../../Json/todolist.json';
 // импорт ЕМОШИОН стилизация
 import { Container } from './App.styled';
 // для иконок
@@ -21,7 +21,7 @@ export const App = () => {
   return (
     <Container>
       <Section title="To Do List">
-        <ToDoList todos={todos} />
+        <ToDoList />
       </Section>
       <Section>
         <ColorPicker options={colorPickerOptions} />
