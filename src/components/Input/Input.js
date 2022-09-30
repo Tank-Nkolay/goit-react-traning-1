@@ -3,22 +3,39 @@ import { Container } from './Input.styled';
 
 class Input extends React.Component {
   state = {
-    inputValue: '123',
+    name: ' ',
+    tag: ' ',
   };
   // ======================================================
-  handleInputChange = e => {
-    this.setState({ inputValue: e.currentTarget.value });
+  handleNameChange = e => {
+    this.setState({ name: e.currentTarget.value });
+  };
+  handleTagChange = e => {
+    this.setState({ tag: e.currentTarget.value });
   };
   // ======================================================
   render() {
     return (
       <Container>
         {/* связь между input и value, через атрибут value */}
-        <input
-          type="text"
-          value={this.state.inputValue}
-          onChange={this.handleInputChange}
-        />
+        <form>
+          <label>
+            Имя
+            <input
+              type="text"
+              value={this.state.name}
+              onChange={this.handleNameChange}
+            />
+          </label>
+          <label>
+            Прозвище
+            <input
+              type="text"
+              value={this.state.tag}
+              onChange={this.handleTagChange}
+            />
+          </label>
+        </form>
       </Container>
     );
   }
