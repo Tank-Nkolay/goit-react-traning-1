@@ -9,7 +9,7 @@ export const Container = styled.ul`
 
 export const Li = styled.li`
   display: flex;
-  margin-bottom: 20px;
+  padding: 10px;
   border: 1px solid red;
   justify-content: space-between;
   padding-left: 20px;
