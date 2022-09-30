@@ -3,21 +3,22 @@ import { Container } from './Input.styled';
 
 class Input extends React.Component {
   state = {
-    todos: [
-      { id: 'id-1', text: 'дело-1', completed: true },
-      { id: 'id-2', text: 'дело-2', completed: false },
-      { id: 'id-3', text: 'дело-3', completed: false },
-      { id: 'id-4', text: 'дело-4', completed: false },
-      { id: 'id-5', text: 'дело-5', completed: true },
-    ],
+    inputValue: '123',
   };
   // ======================================================
-
+  handleInputChange = e => {
+    this.setState({ inputValue: e.currentTarget.value });
+  };
   // ======================================================
   render() {
     return (
       <Container>
-        <input type="text" />
+        {/* связь между input и value, через атрибут value */}
+        <input
+          type="text"
+          value={this.state.inputValue}
+          onChange={this.handleInputChange}
+        />
       </Container>
     );
   }
