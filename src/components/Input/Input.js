@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './Input.styled';
+import { Container, Box, BoxOne, BoxRadioButton } from './Input.styled';
 
 class Form extends React.Component {
   state = {
@@ -50,25 +50,46 @@ class Form extends React.Component {
       <Container>
         {/* связь между input и value, через атрибут value */}
         <form onSubmit={this.handleSubmit}>
-          <label>
-            Имя
-            <input
-              name="name"
-              type="text"
-              value={this.state.name}
-              onChange={this.handleChange}
-            />
-          </label>
-          <label>
-            Прозвище
-            <input
-              name="tag"
-              type="text"
-              value={this.state.tag}
-              onChange={this.handleChange}
-            />
-          </label>
-          <button type="submit">Отправить</button>
+          <Box>
+            <BoxOne>
+              <label>
+                Имя
+                <input
+                  name="name"
+                  type="text"
+                  value={this.state.name}
+                  onChange={this.handleChange}
+                />
+              </label>
+              <label>
+                Прозвище
+                <input
+                  name="tag"
+                  type="text"
+                  value={this.state.tag}
+                  onChange={this.handleChange}
+                />
+              </label>
+            </BoxOne>
+            <BoxRadioButton>
+              <label>
+                <input type="radio" name="" value="junior" />
+                Junior
+              </label>
+              <label>
+                <input type="radio" name="" value="middle" />
+                Middle
+              </label>
+              <label>
+                <input type="radio" name="" value="senior" />
+                Senior
+              </label>
+            </BoxRadioButton>
+
+            <p>Ваш уровень:</p>
+
+            <button type="submit">Отправить</button>
+          </Box>
         </form>
       </Container>
     );
