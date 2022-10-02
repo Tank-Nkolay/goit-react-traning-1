@@ -16,13 +16,18 @@ import Counter from '../Counter/Counter';
 import Dropdown from '../Dropdown';
 import ColorPicker from '../ColorPicker';
 import ToDoList from '../ToDoList';
-import Input from '../Input';
+import Form from '../Input';
+import formSubmitHandler from '../Input/formSubmitHandler';
+
+// =============================
+
+// =============================
 
 export const App = () => {
   return (
     <Container>
       <Section title="INPUT">
-        <Input />
+        <Form onSubmitData={formSubmitHandler} />
       </Section>
       <Section title="To Do List">
         <ToDoList />
