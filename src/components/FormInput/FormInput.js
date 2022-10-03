@@ -19,9 +19,10 @@ class FormInput extends React.Component {
 
   //   метод универсального ввода на две формы
   handleChange = e => {
-    const { name, value } = e.currentTarget;
+    const { name, experience, value } = e.currentTarget;
     this.setState({
       [name]: value,
+      [experience]: value,
     });
   };
 

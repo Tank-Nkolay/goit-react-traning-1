@@ -29,18 +29,20 @@ export class App extends React.Component {
   state = {
     contacts: [],
     name: '',
-    // experience: ' ',
+    experience: ' ',
   };
 
   formSubmitHandler = data => {
-    const { name } = data;
+    const { name, experience } = data;
     this.addContacts(name);
+    this.addContacts(experience);
   };
 
-  addContacts = name => {
+  addContacts = (name, experience) => {
     const contact = {
       id: nanoid(),
       name,
+      experience,
     };
     this.setState(({ contacts }) => ({
       contacts: [contact, ...contacts],
@@ -50,6 +52,7 @@ export class App extends React.Component {
     return (
       <Container>
         {/* форма INPUT ====================== */}
+        {/* пока работает не корректно */}
         <Section>
           <Markup>
             <Title>Phonebook</Title>
