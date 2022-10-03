@@ -14,3 +14,7 @@ export const BoxOne = styled.div``;
 export const BoxRadioButton = styled.div`
   margin-top: 30px;
 `;
+
+export const Button = styled.button`
+  margin-top: 20px;
+`;

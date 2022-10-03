@@ -1,24 +1,33 @@
 import React from 'react';
-import { Container, Box, BoxOne, BoxRadioButton } from './Input.styled';
+import { Container, Box, BoxOne, BoxRadioButton, Button } from './Input.styled';
 
 class Form extends React.Component {
   state = {
     name: ' ',
     tag: ' ',
+    experience: 'junior',
   };
   // ======================================================
 
   //   метод универсального ввода на две формы
   handleChange = e => {
     // таже функция но деструкторизировали
-    const { name, value } = e.currentTarget;
-    this.setState({
-      [name]: value,
-    });
+    // const { name, value, experience, tag } = e.currentTarget;
+    // this.setState({
+    //   [name]: value,
+    //   [experience]: value,
+    //   [tag]: value,
+    // });
 
     // классический метод
     this.setState({
       [e.currentTarget.name]: e.currentTarget.value,
+    });
+    this.setState({
+      [e.currentTarget.tag]: e.currentTarget.value,
+    });
+    this.setState({
+      [e.currentTarget.experience]: e.currentTarget.value,
     });
   };
   //   ================
@@ -45,6 +54,7 @@ class Form extends React.Component {
     this.setState({ name: '', tag: '' });
   };
 
+  // РАДИОБАТОН, пока не работает но должен
   render() {
     return (
       <Container>
@@ -72,23 +82,40 @@ class Form extends React.Component {
               </label>
             </BoxOne>
             <BoxRadioButton>
+              <p>Ваш уровень:</p>
               <label>
-                <input type="radio" name="" value="junior" />
+                <input
+                  type="radio"
+                  name="experience"
+                  value="junior"
+                  onChange={this.handleSubmit}
+                  checked={this.state.experience === 'junior'}
+                />
                 Junior
               </label>
               <label>
-                <input type="radio" name="" value="middle" />
+                <input
+                  type="radio"
+                  name="experience"
+                  value="middle"
+                  onChange={this.handleSubmit}
+                  checked={this.state.experience === 'middle'}
+                />
                 Middle
               </label>
               <label>
-                <input type="radio" name="" value="senior" />
+                <input
+                  type="radio"
+                  name="experience"
+                  value="senior"
+                  onChange={this.handleSubmit}
+                  checked={this.state.experience === 'senior'}
+                />
                 Senior
               </label>
             </BoxRadioButton>
 
-            <p>Ваш уровень:</p>
-
-            <button type="submit">Отправить</button>
+            <Button type="submit">Отправить</Button>
           </Box>
         </form>
       </Container>
