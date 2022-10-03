@@ -1,12 +1,20 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 
-import { BoxFormInput, Form, Label, Input, Button } from './FormInput.styled';
+import {
+  BoxFormInput,
+  Form,
+  Label,
+  Input,
+  Button,
+  BoxRadioButton,
+} from './FormInput.styled';
 
 class FormInput extends React.Component {
   state = {
     contacts: [],
     name: '',
+    experience: 'junior',
   };
 
   //   метод универсального ввода на две формы
@@ -47,6 +55,40 @@ class FormInput extends React.Component {
               onChange={this.handleChange}
             />
           </Label>
+
+          <BoxRadioButton>
+            <p>Ваш уровень:</p>
+            <label>
+              <input
+                type="radio"
+                name="experience"
+                value="junior"
+                onChange={this.handleSubmit}
+                checked={this.state.experience === 'junior'}
+              />
+              Junior
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="experience"
+                value="middle"
+                onChange={this.handleSubmit}
+                checked={this.state.experience === 'middle'}
+              />
+              Middle
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="experience"
+                value="senior"
+                onChange={this.handleSubmit}
+                checked={this.state.experience === 'senior'}
+              />
+              Senior
+            </label>
+          </BoxRadioButton>
           <Button type="submit">Add contacts</Button>
         </Form>
       </BoxFormInput>
@@ -65,76 +107,3 @@ export default FormInput;
 //   //
 // };
 // ===================================
-// ===================================
-// ===================================
-
-// РАДИОБАТОН, пока не работает но должен
-//   render() {
-//     return (
-//       <Container>
-//         {/* связь между input и value, через атрибут value */}
-//         <form onSubmit={this.handleSubmit}>
-//           <Box>
-//             <BoxOne>
-//               <label>
-//                 Имя
-//                 <input
-//                   name="name"
-//                   type="text"
-//                   value={this.state.name}
-//                   onChange={this.handleChange}
-//                 />
-//               </label>
-//               <label>
-//                 Прозвище
-//                 <input
-//                   name="tag"
-//                   type="text"
-//                   value={this.state.tag}
-//                   onChange={this.handleChange}
-//                 />
-//               </label>
-//             </BoxOne>
-//             <BoxRadioButton>
-//               <p>Ваш уровень:</p>
-//               <label>
-//                 <input
-//                   type="radio"
-//                   name="experience"
-//                   value="junior"
-//                   onChange={this.handleSubmit}
-//                   checked={this.state.experience === 'junior'}
-//                 />
-//                 Junior
-//               </label>
-//               <label>
-//                 <input
-//                   type="radio"
-//                   name="experience"
-//                   value="middle"
-//                   onChange={this.handleSubmit}
-//                   checked={this.state.experience === 'middle'}
-//                 />
-//                 Middle
-//               </label>
-//               <label>
-//                 <input
-//                   type="radio"
-//                   name="experience"
-//                   value="senior"
-//                   onChange={this.handleSubmit}
-//                   checked={this.state.experience === 'senior'}
-//                 />
-//                 Senior
-//               </label>
-//             </BoxRadioButton>
-
-//             <Button type="submit">Отправить</Button>
-//           </Box>
-//         </form>
-//       </Container>
-//     );
-//   }
-// }
-
-// export default Form;

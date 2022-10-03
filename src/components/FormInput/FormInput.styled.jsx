@@ -31,3 +31,5 @@ export const Button = styled.button`
   font-size: 24px;
   cursor: pointer;
 `;
+
+export const BoxRadioButton = styled.div``;
