@@ -20,6 +20,7 @@ import ColorPicker from '../ColorPicker';
 import ToDoList from '../ToDoList';
 import FormInput from '../FormInput';
 import Contacts from '../FormInput/Contacts';
+import Http from '../Http/Http';
 
 // =============================
 
@@ -51,6 +52,9 @@ export class App extends React.Component {
   render() {
     return (
       <Container>
+        <Section>
+          <Http />
+        </Section>
         {/* форма INPUT ====================== */}
         {/* пока работает не корректно */}
         <Section>
