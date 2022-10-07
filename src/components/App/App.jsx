@@ -52,7 +52,7 @@ export class App extends React.Component {
   render() {
     return (
       <Container>
-        <Section>
+        <Section title="HTTP-запросы">
           <Http />
         </Section>
         {/* форма INPUT ====================== */}

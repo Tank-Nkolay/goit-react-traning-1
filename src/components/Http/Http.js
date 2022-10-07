@@ -18,19 +18,27 @@ const ArticleList = ({ articles }) => (
 class Http extends React.Component {
   state = {
     articles: [],
+    isLoading: false,
   };
 
   //   критерий запроса на сервер
+  //   пока ждем показываем индикатор загрузки
   async componentDidMount() {
-    const response = await axios.get('/search?query=dog');
-    this.setState({ articles: response.data.hits });
+    // сам индикатор
+    this.setState({ isLoading: true });
+    const response = await axios.get('/search?query=react');
+    this.setState({
+      articles: response.data.hits,
+      isLoading: false,
+    });
   }
 
   render() {
-    const { articles } = this.state;
+    const { articles, isLoading } = this.state;
     return (
       <div>
-        {articles.length > 0 ? <ArticleList articles={articles} /> : null}
+        {/* сдесь условие - Лоадер или разметка */}
+        {isLoading ? <p>Loading...</p> : <ArticleList articles={articles} />}
       </div>
     );
   }
