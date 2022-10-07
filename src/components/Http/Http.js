@@ -19,26 +19,33 @@ class Http extends React.Component {
   state = {
     articles: [],
     isLoading: false,
+    error: null,
   };
 
-  //   критерий запроса на сервер
-  //   пока ждем показываем индикатор загрузки
+  //    критерий запроса на сервер
+  //    пока ждем показываем индикатор загрузки
+  //    отлавливаем ошибку
   async componentDidMount() {
     // сам индикатор
     this.setState({ isLoading: true });
-    const response = await axios.get('/search?query=react');
-    this.setState({
-      articles: response.data.hits,
-      isLoading: false,
-    });
+    try {
+      const response = await axios.get('/search?query=react');
+      this.setState({ articles: response.data.hits });
+    } catch (error) {
+      this.setState({ error });
+    } finally {
+      this.setState({ isLoading: false });
+    }
   }
 
   render() {
-    const { articles, isLoading } = this.state;
+    const { articles, isLoading, error } = this.state;
     return (
       <div>
-        {/* сдесь условие - Лоадер или разметка */}
-        {isLoading ? <p>Loading...</p> : <ArticleList articles={articles} />}
+        {error && <p>Whoops, something went wrong: {error.message}</p>}
+        {isLoading && <p>Loading...</p>}
+        {/* условие - если > 0 */}
+        {articles.length > 0 && <ArticleList articles={articles} />}
       </div>
     );
   }
