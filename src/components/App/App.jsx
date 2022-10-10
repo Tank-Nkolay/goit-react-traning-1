@@ -4,6 +4,7 @@ import { nanoid } from 'nanoid';
 import pantings from '../../Json/pantings.json';
 import recipes from '../../Json/recipes.json';
 import colorPickerOptions from '../../Json/colorPicker.json';
+import tab from '../../Json/tabs.json';
 // import todos from '../../Json/todolist.json';
 // импорт ЕМОШИОН стилизация
 import { Container, Markup, Title } from './App.styled';
@@ -23,6 +24,7 @@ import Contacts from '../FormInput/Contacts';
 import Http from '../Http/Http';
 import Modal from '../Modal';
 import Clock from '../Clock';
+import Tabs from '../Tabs';
 
 // =============================
 
@@ -69,6 +71,9 @@ export class App extends React.Component {
     const { showModal, showClock } = this.state;
     return (
       <Container>
+        <Section title="Tabs">
+          <Tabs items={tab} />
+        </Section>
         <Section title="Clock">
           <button type="button" onClick={this.togleClock}>
             Открыть / Закрыть таймер
