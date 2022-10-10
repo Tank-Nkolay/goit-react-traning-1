@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import api from './services/api';
 
 axios.defaults.baseURL = 'https://hn.algolia.com/api/v1';
 
@@ -22,15 +23,11 @@ class Http extends React.Component {
     error: null,
   };
 
-  //    критерий запроса на сервер
-  //    пока ждем показываем индикатор загрузки
-  //    отлавливаем ошибку
   async componentDidMount() {
-    // сам индикатор
     this.setState({ isLoading: true });
     try {
-      const response = await axios.get('/search?query=react');
-      this.setState({ articles: response.data.hits });
+      const articles = api.fetchArticlesWithQuery('react');
+      this.setState({ articles });
     } catch (error) {
       this.setState({ error });
     } finally {
@@ -52,3 +49,19 @@ class Http extends React.Component {
 }
 
 export default Http;
+
+// ===================================================================
+// ===================================================================
+// async componentDidMount() {
+//     this.setState({ isLoading: true });
+//     try {
+//       const response = await axios.get('/search?query=react');
+//       this.setState({ articles: response.data.hits });
+//     } catch (error) {
+//       this.setState({ error });
+//     } finally {
+//       this.setState({ isLoading: false });
+//     }
+//   }
+// ===================================================================
+// ===================================================================

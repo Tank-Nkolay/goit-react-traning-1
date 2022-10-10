@@ -21,6 +21,7 @@ import ToDoList from '../ToDoList';
 import FormInput from '../FormInput';
 import Contacts from '../FormInput/Contacts';
 import Http from '../Http/Http';
+import Modal from '../Modal';
 
 // =============================
 
@@ -31,6 +32,13 @@ export class App extends React.Component {
     contacts: [],
     name: '',
     experience: ' ',
+    showModal: true,
+  };
+
+  togleModal = () => {
+    this.setState(state => ({
+      showModal: !state.showModal,
+    }));
   };
 
   formSubmitHandler = data => {
@@ -50,8 +58,16 @@ export class App extends React.Component {
     }));
   };
   render() {
+    const { showModal } = this.state;
     return (
       <Container>
+        <Section title="Modal">
+          <button type="button" onClick={this.togleModal}>
+            Открыть модалку
+          </button>
+          {showModal && <Modal />}
+        </Section>
+
         <Section title="HTTP-запросы">
           <Http />
         </Section>
