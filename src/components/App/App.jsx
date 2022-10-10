@@ -34,11 +34,18 @@ export class App extends React.Component {
     name: '',
     experience: ' ',
     showModal: false,
+    showClock: false,
   };
 
   togleModal = () => {
     this.setState(state => ({
       showModal: !state.showModal,
+    }));
+  };
+
+  togleClock = () => {
+    this.setState(state => ({
+      showClock: !state.showClock,
     }));
   };
 
@@ -59,11 +66,14 @@ export class App extends React.Component {
     }));
   };
   render() {
-    const { showModal } = this.state;
+    const { showModal, showClock } = this.state;
     return (
       <Container>
         <Section title="Clock">
-          <Clock />
+          <button type="button" onClick={this.togleClock}>
+            Открыть / Закрыть таймер
+          </button>
+          {showClock && <Clock />}
         </Section>
 
         <Section title="Modal">
