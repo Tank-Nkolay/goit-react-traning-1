@@ -25,6 +25,7 @@ import Http from '../Http/Http';
 import Modal from '../Modal';
 import Clock from '../Clock';
 import Tabs from '../Tabs';
+import IconButton from '../IconButton';
 
 // =============================
 
@@ -71,6 +72,9 @@ export class App extends React.Component {
     const { showModal, showClock } = this.state;
     return (
       <Container>
+        <Section title="IconButton">
+          <IconButton />
+        </Section>
         <Section title="Tabs">
           <Tabs items={tab} />
         </Section>
