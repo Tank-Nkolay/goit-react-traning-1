@@ -65,7 +65,20 @@ export class App extends React.Component {
           <button type="button" onClick={this.togleModal}>
             Открыть модалку
           </button>
-          {showModal && <Modal />}
+          {showModal && (
+            <Modal>
+              <h1>Hello!</h1>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic
+                nobis omnis excepturi, at non neque dolorum molestias ipsam
+                aliquam laudantium dolor laborum expedita reprehenderit ducimus
+                facilis aliquid nemo quia fugit!
+              </p>
+              <button type="button" onClick={this.togleModal}>
+                Закрыть модалку
+              </button>
+            </Modal>
+          )}
         </Section>
 
         <Section title="HTTP-запросы">
