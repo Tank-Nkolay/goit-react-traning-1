@@ -22,6 +22,7 @@ import FormInput from '../FormInput';
 import Contacts from '../FormInput/Contacts';
 import Http from '../Http/Http';
 import Modal from '../Modal';
+import Clock from '../Clock';
 
 // =============================
 
@@ -32,7 +33,7 @@ export class App extends React.Component {
     contacts: [],
     name: '',
     experience: ' ',
-    showModal: true,
+    showModal: false,
   };
 
   togleModal = () => {
@@ -61,6 +62,10 @@ export class App extends React.Component {
     const { showModal } = this.state;
     return (
       <Container>
+        <Section title="Clock">
+          <Clock />
+        </Section>
+
         <Section title="Modal">
           <button type="button" onClick={this.togleModal}>
             Открыть модалку
