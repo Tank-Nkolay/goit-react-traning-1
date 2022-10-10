@@ -1,22 +1,23 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Container } from './Tabs.styled';
 
-export default class Tabs extends Component {
+export default class Tabs extends PureComponent {
   state = {
     activeTabIdx: 0,
   };
 
   //   чтобы небыло перерендера когда он не нужен
-  shouldComponentUpdate(nextProps, nextState) {
-    return nextState.activeTabIdx !== this.state.activeTabIdx;
-  }
+  //   альтернатива PureComponent вместо Component
+  //   shouldComponentUpdate(nextProps, nextState) {
+  //     return nextState.activeTabIdx !== this.state.activeTabIdx;
+  //   }
 
   setActiveTanIdx = idx => {
     this.setState({ activeTabIdx: idx });
   };
 
   render() {
-    console.log(`Re-render @ ${Date.now()}`);
+    // console.log(`Re-render @ ${Date.now()}`);
 
     const { activeTabIdx } = this.state;
     const { items } = this.props;
