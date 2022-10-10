@@ -7,7 +7,7 @@ class Modal extends React.Component {
   render() {
     return (
       <div>
-        <Container></Container>
+        <Container>{this.props.children}</Container>
       </div>
     );
   }
