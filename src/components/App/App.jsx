@@ -26,6 +26,7 @@ import Modal from '../Modal';
 import Clock from '../Clock';
 import Tabs from '../Tabs';
 import IconButton from '../IconButton';
+// импорт иконки svg
 import { ReactComponent as AddIcon } from '../../icons/add.svg';
 
 // =============================
@@ -39,6 +40,7 @@ export class App extends React.Component {
     experience: ' ',
     showModal: false,
     showClock: false,
+    todos: [],
   };
 
   togleModal = () => {
@@ -69,13 +71,29 @@ export class App extends React.Component {
       contacts: [contact, ...contacts],
     }));
   };
+
+  addTodo = text => {
+    const todo = {
+      id: nanoid(),
+      text,
+      completed: false,
+    };
+    this.setState(({ todos }) => ({
+      todos: [todo, ...todos],
+    }));
+  };
+
   render() {
     const { showModal, showClock } = this.state;
     return (
       <Container>
+        <Section title="To Do List">
+          <ToDoList />
+        </Section>
         <Section title="IconButton">
-          <AddIcon width="40" height="40" />
-          <IconButton>Тестовая кнопка</IconButton>
+          <IconButton onClick={this.togleModal}>
+            <AddIcon width="40" height="40" fill="white" />
+          </IconButton>
         </Section>
         <Section title="Tabs">
           <Tabs items={tab} />
@@ -124,9 +142,7 @@ export class App extends React.Component {
           </Markup>
           {/* ================================= */}
         </Section>
-        <Section title="To Do List">
-          <ToDoList />
-        </Section>
+
         <Section>
           <ColorPicker options={colorPickerOptions} />
           <Dropdown />
