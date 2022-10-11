@@ -26,6 +26,7 @@ import Modal from '../Modal';
 import Clock from '../Clock';
 import Tabs from '../Tabs';
 import IconButton from '../IconButton';
+import Reader from '../Reader';
 // импорт иконки svg
 import { ReactComponent as AddIcon } from '../../icons/add.svg';
 
@@ -87,6 +88,9 @@ export class App extends React.Component {
     const { showModal, showClock } = this.state;
     return (
       <Container>
+        <Section title="Reader">
+          <Reader />
+        </Section>
         <Section title="To Do List">
           <ToDoList />
         </Section>
