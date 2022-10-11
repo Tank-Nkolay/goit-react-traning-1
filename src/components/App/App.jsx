@@ -91,7 +91,7 @@ export class App extends React.Component {
           <ToDoList />
         </Section>
         <Section title="IconButton">
-          <IconButton onClick={this.togleModal}>
+          <IconButton onClick={this.togleModal} aria-label="Добавить">
             <AddIcon width="40" height="40" fill="white" />
           </IconButton>
         </Section>
