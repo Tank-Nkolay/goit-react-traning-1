@@ -3,6 +3,9 @@ import Controls from './Controls';
 import Progress from './Progress';
 import Publication from './Publication';
 
+// константа локал сторедж
+const LS_KEY = 'reader-item-index';
+
 class Reader extends React.Component {
   state = {
     index: 0,
@@ -11,6 +14,23 @@ class Reader extends React.Component {
   changeIdx = value => {
     this.setState(state => ({ index: state.index + value }));
   };
+
+  //   показывает что компонент смонтирован (первое чтение)
+  //   можно получить значение записанное в локал сторедж
+  componentDidMount() {
+    // console.log(localStorage.getItem(LS_KEY));
+    const index = Number(localStorage.getItem(LS_KEY));
+    this.setState({ index });
+  }
+
+  //   показывает изменение состояния (обновление)
+  //   записываем в локал сторедж по условию
+  //   prevProps меняем на _ , чтобы не ругался сборщик
+  componentDidUpdate(_, prevState) {
+    if (prevState.index !== this.state.index) {
+      localStorage.setItem(LS_KEY, this.state.index);
+    }
+  }
 
   // раздельно
   //   onPrev = () => {
