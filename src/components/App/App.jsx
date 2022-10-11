@@ -26,6 +26,7 @@ import Modal from '../Modal';
 import Clock from '../Clock';
 import Tabs from '../Tabs';
 import IconButton from '../IconButton';
+import { ReactComponent as AddIcon } from '../../icons/add.svg';
 
 // =============================
 
@@ -73,7 +74,8 @@ export class App extends React.Component {
     return (
       <Container>
         <Section title="IconButton">
-          <IconButton />
+          <AddIcon width="40" height="40" />
+          <IconButton>Тестовая кнопка</IconButton>
         </Section>
         <Section title="Tabs">
           <Tabs items={tab} />
