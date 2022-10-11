@@ -1,24 +1,44 @@
 import React from 'react';
 
 class Reader extends React.Component {
-  state = {};
+  state = {
+    index: 0,
+  };
+
+  changeIdx = value => {
+    this.setState(state => ({ index: state.index + value }));
+  };
+
+  // раздельно
+  //   onPrev = () => {
+  //     this.setState(state => ({ index: state.index - 1 }));
+  //   };
+  //   onNext = () => {
+  //     this.setState(state => ({ index: state.index + 1 }));
+  //   };
 
   render() {
+    const currentItem = this.props.items[this.state.index];
     return (
       <div>
         <section>
-          <button type="button">Назад</button>
-          <button type="button">Вперед</button>
+          <button
+            type="button"
+            disabled={this.state.index === 0}
+            onClick={() => this.changeIdx(-1)}
+          >
+            Назад
+          </button>
+          <button type="button" onClick={() => this.changeIdx(1)}>
+            Вперед
+          </button>
         </section>
-        <p>1/10</p>
+        <p>
+          {this.state.index + 1}/{this.props.items.length}
+        </p>
         <article>
-          <h2>qqqqqq</h2>
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis
-            dicta perspiciatis cupiditate velit sunt eos in maiores! Natus,
-            reiciendis animi accusantium ipsum incidunt in quod dolorem tenetur
-            possimus, eum voluptas?
-          </p>
+          <h2>{currentItem.title}</h2>
+          <p>{currentItem.text}</p>
         </article>
       </div>
     );

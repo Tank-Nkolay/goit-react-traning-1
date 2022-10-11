@@ -5,6 +5,7 @@ import pantings from '../../Json/pantings.json';
 import recipes from '../../Json/recipes.json';
 import colorPickerOptions from '../../Json/colorPicker.json';
 import tab from '../../Json/tabs.json';
+import publication from '../../Json/reader.json';
 // import todos from '../../Json/todolist.json';
 // импорт ЕМОШИОН стилизация
 import { Container, Markup, Title } from './App.styled';
@@ -89,7 +90,7 @@ export class App extends React.Component {
     return (
       <Container>
         <Section title="Reader">
-          <Reader />
+          <Reader items={publication} />
         </Section>
         <Section title="To Do List">
           <ToDoList />
