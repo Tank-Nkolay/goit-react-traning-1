@@ -1,4 +1,7 @@
 import React from 'react';
+import Controls from './Controls';
+import Progress from './Progress';
+import Publication from './Publication';
 
 class Reader extends React.Component {
   state = {
@@ -24,29 +27,13 @@ class Reader extends React.Component {
 
     return (
       <div>
-        <section>
-          <button
-            type="button"
-            disabled={index === 0}
-            onClick={() => this.changeIdx(-1)}
-          >
-            Назад
-          </button>
-          <button
-            type="button"
-            disabled={index + 1 === totalItems}
-            onClick={() => this.changeIdx(1)}
-          >
-            Вперед
-          </button>
-        </section>
-        <p>
-          {index + 1}/{totalItems}
-        </p>
-        <article>
-          <h2>{currentItem.title}</h2>
-          <p>{currentItem.text}</p>
-        </article>
+        <Controls
+          currentIdx={index + 1}
+          totalItems={totalItems}
+          changeIdx={this.changeIdx}
+        />
+        <Progress currentIdx={index + 1} totalItems={totalItems} />
+        <Publication currentItem={currentItem} />
       </div>
     );
   }
