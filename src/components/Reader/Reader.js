@@ -19,8 +19,14 @@ class Reader extends React.Component {
   //   можно получить значение записанное в локал сторедж
   componentDidMount() {
     // console.log(localStorage.getItem(LS_KEY));
-    const index = Number(localStorage.getItem(LS_KEY));
-    this.setState({ index });
+
+    // проверяем если в локал сторедж что-то есть, то тогда делаем действие
+    // это правильно
+    const savedState = localStorage.getItem(LS_KEY);
+    if (savedState) {
+      const index = Number(localStorage.getItem(LS_KEY));
+      this.setState({ index });
+    }
   }
 
   //   показывает изменение состояния (обновление)
