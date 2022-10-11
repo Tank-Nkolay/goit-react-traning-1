@@ -19,22 +19,29 @@ class Reader extends React.Component {
 
   render() {
     const currentItem = this.props.items[this.state.index];
+    const totalItems = this.props.items.length;
+    const { index } = this.state;
+
     return (
       <div>
         <section>
           <button
             type="button"
-            disabled={this.state.index === 0}
+            disabled={index === 0}
             onClick={() => this.changeIdx(-1)}
           >
             Назад
           </button>
-          <button type="button" onClick={() => this.changeIdx(1)}>
+          <button
+            type="button"
+            disabled={index + 1 === totalItems}
+            onClick={() => this.changeIdx(1)}
+          >
             Вперед
           </button>
         </section>
         <p>
-          {this.state.index + 1}/{this.props.items.length}
+          {index + 1}/{totalItems}
         </p>
         <article>
           <h2>{currentItem.title}</h2>
