@@ -31,10 +31,7 @@ import Reader from '../Reader';
 // импорт иконки svg
 import { ReactComponent as AddIcon } from '../../icons/add.svg';
 
-// =============================
-
-// =============================
-
+// =============================================================
 export class App extends React.Component {
   state = {
     contacts: [],
@@ -44,6 +41,13 @@ export class App extends React.Component {
     showClock: false,
     todos: [],
   };
+
+  // запрос на ipi
+  componentDidMount() {
+    fetch('tttps://pokeapi.co/api/v2/pokemon/ditto')
+      .then(res => res.json())
+      .then(console.log);
+  }
 
   togleModal = () => {
     this.setState(state => ({
@@ -89,7 +93,7 @@ export class App extends React.Component {
     const { showModal, showClock } = this.state;
     return (
       <Container>
-        <Section title="Reader">
+        <Section>
           <Reader items={publication} />
         </Section>
         <Section title="To Do List">

@@ -2,6 +2,7 @@ import React from 'react';
 import Controls from './Controls';
 import Progress from './Progress';
 import Publication from './Publication';
+import { Container } from './Reader.styled';
 
 // константа локал сторедж
 const LS_KEY = 'reader-item-index';
@@ -52,7 +53,8 @@ class Reader extends React.Component {
     const { index } = this.state;
 
     return (
-      <div>
+      <Container>
+        <h1>Reader</h1>
         <Controls
           currentIdx={index + 1}
           totalItems={totalItems}
@@ -60,7 +62,7 @@ class Reader extends React.Component {
         />
         <Progress currentIdx={index + 1} totalItems={totalItems} />
         <Publication currentItem={currentItem} />
-      </div>
+      </Container>
     );
   }
 }
