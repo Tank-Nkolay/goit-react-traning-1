@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import api from './services/api';
+// import api from './services/api';
 
 axios.defaults.baseURL = 'https://hn.algolia.com/api/v1';
 
@@ -26,8 +26,12 @@ class Http extends React.Component {
   async componentDidMount() {
     this.setState({ isLoading: true });
     try {
-      const articles = api.fetchArticlesWithQuery('react');
-      this.setState({ articles });
+      // мжно вынести ИЗ КОНСПЕКТА =============
+      // const articles = api.fetchArticlesWithQuery('react');
+      // this.setState({ articles });
+      const response = await axios.get('/search?query=react');
+      this.setState({ articles: response.data.hits });
+      // =======================================
     } catch (error) {
       this.setState({ error });
     } finally {

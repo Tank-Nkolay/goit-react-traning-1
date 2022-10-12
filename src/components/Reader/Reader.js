@@ -20,7 +20,7 @@ class Reader extends React.Component {
   componentDidMount() {
     // console.log(localStorage.getItem(LS_KEY));
 
-    // проверяем если в локал сторедж что-то есть, то тогда делаем действие
+    // проверяем если в локал сторедж что-то есть, оно не null, то тогда делаем действие
     // это правильно
     const savedState = localStorage.getItem(LS_KEY);
     if (savedState) {
