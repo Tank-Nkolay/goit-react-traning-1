@@ -7,10 +7,12 @@ class PokemonForm extends React.Component {
     pokemonName: '',
   };
 
+  //   метод для временного сохранения в state (для фильтр), очистка в другом
   handleNameChange = e => {
     this.setState({ pokemonName: e.currentTarget.value.toLowerCase() });
   };
 
+  //   метод после САБМИТ передача в APP и очистки state name
   handleSubmit = e => {
     e.preventDefault();
     this.props.onFormSubmit(this.state.pokemonName);

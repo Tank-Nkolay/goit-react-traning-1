@@ -42,8 +42,9 @@ export class App extends React.Component {
     showClock: false,
     todos: [],
     // для ПОКЕМОНЫ
-    pokemon: null,
-    loading: false,
+    // pokemon: null,
+    // loading: false,
+    pokemonName: '',
   };
 
   // запрос на ipi для pokemon ===================
@@ -54,9 +55,9 @@ export class App extends React.Component {
   //     .then(pokemon => this.setState({ pokemon }))
   //     .finally(() => this.setState({ loading: false }));
   // }
-  // для pokemon ==================================
+  // для pokemon, при Submit формы, записываем данные в state ==
   handleFormSubmit = pokemonName => {
-    console.log(pokemonName);
+    this.setState({ pokemonName });
   };
 
   togleModal = () => {
