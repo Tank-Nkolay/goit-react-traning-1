@@ -9,7 +9,7 @@ import tab from '../../Json/tabs.json';
 import publication from '../../Json/reader.json';
 // import todos from '../../Json/todolist.json';
 // импорт ЕМОШИОН стилизация
-import { Container, Markup, Title } from './App.styled';
+import { Container, Div, Markup, Title } from './App.styled';
 // для иконок
 import { FaBeer } from 'react-icons/fa';
 import { AiFillAudio } from 'react-icons/ai';
@@ -30,6 +30,7 @@ import Tabs from '../Tabs';
 import IconButton from '../IconButton';
 import Reader from '../Reader';
 import PokemonForm from '../Pokemon';
+import PokemonInfo from '../Pokemon/PokemonInfo';
 // импорт иконки svg
 import { ReactComponent as AddIcon } from '../../icons/add.svg';
 
@@ -106,8 +107,11 @@ export class App extends React.Component {
     return (
       <Container>
         <Section>
-          <PokemonForm onFormSubmit={this.handleFormSubmit} />
-          <ToastContainer />
+          <Div>
+            <PokemonForm onFormSubmit={this.handleFormSubmit} />
+            <PokemonInfo pokemonName={this.state.pokemonName} />
+            <ToastContainer />
+          </Div>
         </Section>
         {/* <Section>
           {this.state.loading && <h2>Загружаем ...</h2>}

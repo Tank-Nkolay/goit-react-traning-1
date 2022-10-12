@@ -9,6 +9,12 @@ export const Container = styled.div`
   color: #010101;
 `;
 
+export const Div = styled.div`
+  outline: 3px solid red;
+  padding: 40px;
+  padding-top: 20px;
+`;
+
 export const Markup = styled.div`
   width: 500px;
   margin-top: 32px;
