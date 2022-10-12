@@ -1,13 +1,18 @@
 import React from 'react';
 
 class PokemonInfo extends React.Component {
-  state = {};
+  state = {
+    pokemon: null,
+  };
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevProps.pokemonName !== this.props.pokemonName) {
+    const prevName = prevProps.pokemonName;
+    const nextName = this.props.pokemonName;
+    if (prevName !== nextName) {
       console.log('Изменилось имя покемона');
-      console.log('prevProps.pokemonName', prevProps.pokemonName);
-      console.log('this.props.pokemonName', this.props.pokemonName);
+      fetch(`https://pokeapi.co/api/v2/pokemon/${nextName}`)
+        .then(res => res.json())
+        .then(pokemon => this.setState({ pokemon }));
     }
   }
 
@@ -15,7 +20,9 @@ class PokemonInfo extends React.Component {
     return (
       <div>
         <h2>PokemonInfo</h2>
-        <p>{this.props.pokemonName}</p>
+        {this.state.pokemon && (
+          <div>Тут будет покемон: {this.state.pokemon.name}</div>
+        )}
       </div>
     );
   }
