@@ -1,4 +1,6 @@
 import React from 'react';
+// компонент библиотеки уведомлений
+import { toast } from 'react-toastify';
 import { ImSearch } from 'react-icons/im';
 import { Container } from './PokemonForm.styled';
 
@@ -17,7 +19,12 @@ class PokemonForm extends React.Component {
     e.preventDefault();
 
     if (this.state.pokemonName.trim() === '') {
-      alert('Введите имя покемона!');
+      //   alert('Введите имя покемона!');
+      toast('Введите имя покемона!', {
+        position: 'top-center',
+        theme: 'colored',
+      });
+
       return;
     }
     this.props.onFormSubmit(this.state.pokemonName);
