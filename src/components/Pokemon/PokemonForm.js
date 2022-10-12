@@ -15,6 +15,11 @@ class PokemonForm extends React.Component {
   //   метод после САБМИТ передача в APP и очистки state name
   handleSubmit = e => {
     e.preventDefault();
+
+    if (this.state.pokemonName.trim() === '') {
+      alert('Введите имя покемона!');
+      return;
+    }
     this.props.onFormSubmit(this.state.pokemonName);
     this.setState({ pokemonName: '' });
   };
