@@ -40,14 +40,18 @@ export class App extends React.Component {
     showModal: false,
     showClock: false,
     todos: [],
-    pokemon: 1,
+    // для ПОКЕМОНЫ
+    pokemon: null,
+    loading: false,
   };
 
   // запрос на ipi ===================
   componentDidMount() {
+    this.setState({ loading: true });
     fetch('https://pokeapi.co/api/v2/pokemon/ditto')
       .then(res => res.json())
-      .then(console.log);
+      .then(pokemon => this.setState({ pokemon }))
+      .finally(() => this.setState({ loading: false }));
   }
 
   togleModal = () => {
@@ -94,7 +98,12 @@ export class App extends React.Component {
     const { showModal, showClock } = this.state;
     return (
       <Container>
-        <Section>{this.state.pokemon && <div>Тут будет покемон</div>}</Section>
+        <Section>
+          {this.state.loading && <h2>Загружаем ...</h2>}
+          {this.state.pokemon && (
+            <div>Тут будет покемон: {this.state.pokemon.name}</div>
+          )}
+        </Section>
         <Section>
           <Reader items={publication} />
         </Section>
