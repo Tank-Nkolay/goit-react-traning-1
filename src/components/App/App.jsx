@@ -40,11 +40,12 @@ export class App extends React.Component {
     showModal: false,
     showClock: false,
     todos: [],
+    pokemon: 1,
   };
 
-  // запрос на ipi
+  // запрос на ipi ===================
   componentDidMount() {
-    fetch('tttps://pokeapi.co/api/v2/pokemon/ditto')
+    fetch('https://pokeapi.co/api/v2/pokemon/ditto')
       .then(res => res.json())
       .then(console.log);
   }
@@ -93,6 +94,7 @@ export class App extends React.Component {
     const { showModal, showClock } = this.state;
     return (
       <Container>
+        <Section>{this.state.pokemon && <div>Тут будет покемон</div>}</Section>
         <Section>
           <Reader items={publication} />
         </Section>
