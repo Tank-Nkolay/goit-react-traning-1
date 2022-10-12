@@ -20,11 +20,7 @@ class PokemonForm extends React.Component {
 
     if (this.state.pokemonName.trim() === '') {
       //   alert('Введите имя покемона!');
-      toast('Введите имя покемона!', {
-        position: 'top-center',
-        theme: 'colored',
-      });
-
+      toast('Введите имя покемона!');
       return;
     }
     this.props.onFormSubmit(this.state.pokemonName);
