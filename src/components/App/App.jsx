@@ -28,6 +28,7 @@ import Clock from '../Clock';
 import Tabs from '../Tabs';
 import IconButton from '../IconButton';
 import Reader from '../Reader';
+import PokemonForm from '../Pokemon';
 // импорт иконки svg
 import { ReactComponent as AddIcon } from '../../icons/add.svg';
 
@@ -45,14 +46,18 @@ export class App extends React.Component {
     loading: false,
   };
 
-  // запрос на ipi ===================
-  componentDidMount() {
-    this.setState({ loading: true });
-    fetch('https://pokeapi.co/api/v2/pokemon/ditto')
-      .then(res => res.json())
-      .then(pokemon => this.setState({ pokemon }))
-      .finally(() => this.setState({ loading: false }));
-  }
+  // запрос на ipi для pokemon ===================
+  // componentDidMount() {
+  //   this.setState({ loading: true });
+  //   fetch('https://pokeapi.co/api/v2/pokemon/ditto')
+  //     .then(res => res.json())
+  //     .then(pokemon => this.setState({ pokemon }))
+  //     .finally(() => this.setState({ loading: false }));
+  // }
+  // для pokemon ==================================
+  handleFormSubmit = pokemonName => {
+    console.log(pokemonName);
+  };
 
   togleModal = () => {
     this.setState(state => ({
@@ -99,11 +104,14 @@ export class App extends React.Component {
     return (
       <Container>
         <Section>
+          <PokemonForm onFormSubmit={this.handleFormSubmit} />
+        </Section>
+        {/* <Section>
           {this.state.loading && <h2>Загружаем ...</h2>}
           {this.state.pokemon && (
             <div>Тут будет покемон: {this.state.pokemon.name}</div>
           )}
-        </Section>
+        </Section> */}
         <Section>
           <Reader items={publication} />
         </Section>

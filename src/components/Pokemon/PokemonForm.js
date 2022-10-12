@@ -12,14 +12,24 @@ class PokemonForm extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
+
+    this.props.onFormSubmit(this.state.pokemonName);
     this.setState({ pokemonName: '' });
   };
 
   render() {
     return (
-      <form>
-        <input />
-        <button></button>
+      <form onSubmit={this.handleSubmit}>
+        <input
+          type="text"
+          name="pokemonName"
+          value={this.state.pokemonName}
+          onChange={this.handleNameChange}
+        />
+        <button type="submit">
+          <ImSearch style={{ marginRight: 8 }} />
+          Найти
+        </button>
       </form>
     );
   }
