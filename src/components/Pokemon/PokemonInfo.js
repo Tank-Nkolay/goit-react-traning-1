@@ -31,7 +31,7 @@ class PokemonInfo extends React.Component {
 
   render() {
     const { pokemon, error, status } = this.state;
-
+    // state машина
     if (status === 'idle') {
       return <div>Введите имя покемона</div>;
     }
