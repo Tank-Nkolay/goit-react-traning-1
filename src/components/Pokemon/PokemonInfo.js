@@ -5,6 +5,8 @@ class PokemonInfo extends React.Component {
     pokemon: null,
     loading: false,
     error: null,
+    // для state машины
+    status: 'idle',
   };
 
   componentDidUpdate(prevProps, prevState) {
@@ -29,9 +31,16 @@ class PokemonInfo extends React.Component {
     }
   }
 
+  //   idle, pending, resolved. rejected
+
   render() {
-    const { pokemon, loading, error } = this.state;
+    const { pokemon, loading, error, status } = this.state;
     const { pokemonName } = this.props;
+
+    if (status === 'idle') {
+      return <div>Введите имя покемона</div>;
+    }
+
     return (
       <div>
         <h2>Pokemon Info</h2>
