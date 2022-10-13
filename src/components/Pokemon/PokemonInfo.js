@@ -24,10 +24,19 @@ class PokemonInfo extends React.Component {
     const { pokemonName } = this.props;
     return (
       <div>
-        <h2>PokemonInfo</h2>
+        <h2>Pokemon Info</h2>
         {loading && <h2>Загружаем ...</h2>}
         {!pokemonName && <div>Введите имя покемона</div>}
-        {pokemon && <div>Тут будет покемон: {pokemon.name}</div>}
+        {pokemon && (
+          <div>
+            <p>{pokemon.name}</p>
+            <img
+              src={pokemon.sprites.other['official-artwork'].front_default}
+              width="240"
+              alt={pokemon.name}
+            />
+          </div>
+        )}
       </div>
     );
   }
