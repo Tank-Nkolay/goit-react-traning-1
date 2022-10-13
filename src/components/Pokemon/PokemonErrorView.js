@@ -1,14 +1,10 @@
 import React from 'react';
 
-
 class PokemonForm extends React.Component {
-  state = {
-
-  };
-
+  state = {};
 
   render() {
-    return ();
+    return <div></div>;
   }
 }
 
