@@ -3,7 +3,6 @@ import React from 'react';
 class PokemonInfo extends React.Component {
   state = {
     pokemon: null,
-    loading: false,
     error: null,
     // для state машины
     status: 'idle',
@@ -15,7 +14,7 @@ class PokemonInfo extends React.Component {
     if (prevName !== nextName) {
       //   console.log('Изменилось имя покемона');
       // включаем ЛОАДЕР, обнуляем ПОКЕМОН
-      this.setState({ loading: true, pokemon: null });
+      this.setState({ status: 'pending' });
       fetch(`https://pokeapi.co/api/v2/pokemon/${nextName}`)
         .then(response => {
           if (response.ok) {
@@ -24,39 +23,45 @@ class PokemonInfo extends React.Component {
           //   так мы обрабатываем 404 ошибку
           return Promise.reject(new Error(`Нет покемона с именем ${nextName}`));
         })
-        .then(pokemon => this.setState({ pokemon }))
-        .catch(error => this.setState({ error }))
-        .finally(() => this.setState({ loading: false }));
+        .then(pokemon => this.setState({ pokemon, status: 'resolved' }))
+        .catch(error => this.setState({ error, status: 'rejected' }));
       console.log(this.error);
     }
   }
 
-  //   idle, pending, resolved. rejected
-
   render() {
-    const { pokemon, loading, error, status } = this.state;
-    const { pokemonName } = this.props;
+    const { pokemon, error, status } = this.state;
 
     if (status === 'idle') {
       return <div>Введите имя покемона</div>;
     }
+    if (status === 'pending') {
+      return <h2>Загружаем ...</h2>;
+    }
+    if (status === 'rejected') {
+      return <h2>{error.message}</h2>;
+    }
+    if (status === 'resolved') {
+      return (
+        <div>
+          <p>{pokemon.name}</p>
+          <img
+            src={pokemon.sprites.other['official-artwork'].front_default}
+            width="240"
+            alt={pokemon.name}
+          />
+        </div>
+      );
+    }
 
     return (
       <div>
-        <h2>Pokemon Info</h2>
-        {error && <h2>{error.message}</h2>}
-        {loading && <h2>Загружаем ...</h2>}
-        {!pokemonName && <div>Введите имя покемона</div>}
-        {pokemon && (
-          <div>
-            <p>{pokemon.name}</p>
-            <img
-              src={pokemon.sprites.other['official-artwork'].front_default}
-              width="240"
-              alt={pokemon.name}
-            />
-          </div>
-        )}
+        <p>{pokemon.name}</p>
+        <img
+          src={pokemon.sprites.other['official-artwork'].front_default}
+          width="240"
+          alt={pokemon.name}
+        />
       </div>
     );
   }
