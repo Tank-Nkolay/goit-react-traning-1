@@ -43,20 +43,9 @@ export class App extends React.Component {
     showModal: false,
     showClock: false,
     todos: [],
-    // для ПОКЕМОНЫ
-    // pokemon: null,
-    // loading: false,
     pokemonName: '',
   };
 
-  // запрос на ipi для pokemon ===================
-  // componentDidMount() {
-  //   this.setState({ loading: true });
-  //   fetch('https://pokeapi.co/api/v2/pokemon/ditto')
-  //     .then(res => res.json())
-  //     .then(pokemon => this.setState({ pokemon }))
-  //     .finally(() => this.setState({ loading: false }));
-  // }
   // для pokemon, при Submit формы, записываем данные в state ==
   handleFormSubmit = pokemonName => {
     this.setState({ pokemonName });
@@ -113,12 +102,6 @@ export class App extends React.Component {
             <ToastContainer />
           </Div>
         </Section>
-        {/* <Section>
-          {this.state.loading && <h2>Загружаем ...</h2>}
-          {this.state.pokemon && (
-            <div>Тут будет покемон: {this.state.pokemon.name}</div>
-          )}
-        </Section> */}
         <Section>
           <Reader items={publication} />
         </Section>
