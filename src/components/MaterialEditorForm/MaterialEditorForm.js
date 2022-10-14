@@ -1,21 +1,22 @@
 import { Formik, Form, Field } from 'formik';
 
-const MaterialEditorForm = () => {
+const MaterialEditorForm = ({ onSubmit }) => {
+  const handleSubmit = (values, { resetForm }) => {
+    onSubmit(values);
+    resetForm();
+  };
+  // console.log(onSubmit);
   return (
-    <Formik
-      initialValue={{ title: '', link: '' }}
-      onSubmit={xxx => console.log(xxx)}
-    >
+    <Formik initialValues={{ title: '', link: '' }} onSubmit={handleSubmit}>
       <Form>
         <label>
           Описание
-          <Field name="title" />
+          <Field name="title" type="text" />
         </label>
         <label>
           Ссылка
-          <Field name="link" />
+          <Field type="text" name="link" />
         </label>
-
         <button type="submit">Добавить материал</button>
       </Form>
     </Formik>
