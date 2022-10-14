@@ -52,9 +52,14 @@ export class App extends React.Component {
   };
 
   // для MaterialEditorForm
+  async componentDidMount() {
+    const materials = await API.getMaterials();
+    this.setState({ materials });
+  }
+
   addMaterial = async values => {
     try {
-      const material = API.addMaterial(values);
+      const material = await API.addMaterial(values);
       this.setState(state => ({ materials: [...state.materials, material] }));
       // console.log(material);
     } catch (error) {
