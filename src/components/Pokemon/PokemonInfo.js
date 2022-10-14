@@ -1,5 +1,6 @@
 import React from 'react';
 import PokemonErrorView from './PokemonErrorView';
+import PokemonDataView from './PokemonDataView';
 
 class PokemonInfo extends React.Component {
   state = {
@@ -43,16 +44,7 @@ class PokemonInfo extends React.Component {
       return <PokemonErrorView message={error.message} />;
     }
     if (status === 'resolved') {
-      return (
-        <div>
-          <p>{pokemon.name}</p>
-          <img
-            src={pokemon.sprites.other['official-artwork'].front_default}
-            width="240"
-            alt={pokemon.name}
-          />
-        </div>
-      );
+      return <PokemonDataView pokemon={pokemon} />;
     }
   }
 }
