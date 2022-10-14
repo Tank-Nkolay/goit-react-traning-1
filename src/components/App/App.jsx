@@ -98,7 +98,7 @@ export class App extends React.Component {
     return (
       <Container>
         <Section>
-          <MaterialEditorForm />
+          <MaterialEditorForm onSubmit={console.log} />
         </Section>
         <Section>
           <Div>
