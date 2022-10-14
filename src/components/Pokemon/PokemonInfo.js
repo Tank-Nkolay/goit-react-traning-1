@@ -16,8 +16,6 @@ class PokemonInfo extends React.Component {
     const prevName = prevProps.pokemonName;
     const nextName = this.props.pokemonName;
     if (prevName !== nextName) {
-      //   console.log('Изменилось имя покемона');
-      // включаем ЛОАДЕР, обнуляем ПОКЕМОН
       this.setState({ status: 'pending' });
 
       // вынносим кусочек в функцию и передаем, ниже полный код
