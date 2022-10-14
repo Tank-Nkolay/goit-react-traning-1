@@ -1,11 +1,12 @@
-import React from 'react';
+import errorImg from '../../jpg/errorImg.jpg';
 
-class PokemonForm extends React.Component {
-  state = {};
-
-  render() {
-    return <div></div>;
-  }
+function PokemonErrorView({ message }) {
+  return (
+    <div>
+      <img src={errorImg} width="240" alt="sadunicorn" />
+      <p>{message}</p>
+    </div>
+  );
 }
 
-export default PokemonForm;
+export default PokemonErrorView;

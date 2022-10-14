@@ -1,6 +1,6 @@
 import React from 'react';
 import { nanoid } from 'nanoid';
-import { ToastContainer } from 'react-toastify';
+// import { ToastContainer } from 'react-toastify';
 // импорт масива данных для разметки (для пропсов)
 import pantings from '../../Json/pantings.json';
 import recipes from '../../Json/recipes.json';
@@ -99,7 +99,7 @@ export class App extends React.Component {
           <Div>
             <PokemonForm onFormSubmit={this.handleFormSubmit} />
             <PokemonInfo pokemonName={this.state.pokemonName} />
-            <ToastContainer />
+            {/* <ToastContainer /> */}
           </Div>
         </Section>
         <Section>
