@@ -53,9 +53,13 @@ export class App extends React.Component {
 
   // для MaterialEditorForm
   addMaterial = async values => {
-    const material = API.addMaterial(values);
-    this.setState(state => ({ materials: [...state.materials, material] }));
-    console.log(material);
+    try {
+      const material = API.addMaterial(values);
+      this.setState(state => ({ materials: [...state.materials, material] }));
+      // console.log(material);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   // для pokemon, при Submit формы, записываем данные в state ==
