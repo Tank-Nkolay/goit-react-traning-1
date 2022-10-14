@@ -33,6 +33,8 @@ import Reader from '../Reader';
 import PokemonForm from '../Pokemon/PokemonForm';
 import PokemonInfo from '../Pokemon/PokemonInfo';
 import MaterialEditorForm from '../MaterialEditorForm/MaterialEditorForm';
+import * as API from '../MaterialEditorForm/api';
+
 // импорт иконки svg
 import { ReactComponent as AddIcon } from '../../icons/add.svg';
 
@@ -46,6 +48,14 @@ export class App extends React.Component {
     showClock: false,
     todos: [],
     pokemonName: '',
+    materials: [],
+  };
+
+  // для MaterialEditorForm
+  addMaterial = async values => {
+    const material = API.addMaterial(values);
+    this.setState(state => ({ materials: [...state.materials, material] }));
+    console.log(material);
   };
 
   // для pokemon, при Submit формы, записываем данные в state ==
@@ -98,7 +108,7 @@ export class App extends React.Component {
     return (
       <Container>
         <Section>
-          <MaterialEditorForm onSubmit={console.log} />
+          <MaterialEditorForm onSubmit={this.addMaterial} />
         </Section>
         <Section>
           <Div>
