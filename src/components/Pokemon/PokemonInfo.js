@@ -2,7 +2,7 @@ import React from 'react';
 import PokemonErrorView from './PokemonErrorView';
 import PokemonDataView from './PokemonDataView';
 import PokemonPendingView from './PokemonPendingView';
-import pokemonAPI from './pokemon-api.js';
+import { api } from './pokemon-api.js';
 
 class PokemonInfo extends React.Component {
   state = {
@@ -20,7 +20,7 @@ class PokemonInfo extends React.Component {
 
       // вынносим кусочек в функцию и передаем, ниже полный код
       setTimeout(() => {
-        pokemonAPI
+        api
           .fetchPokemon(nextName)
           .then(pokemon => this.setState({ pokemon, status: 'resolved' }))
           .catch(error => this.setState({ error, status: 'rejected' }));

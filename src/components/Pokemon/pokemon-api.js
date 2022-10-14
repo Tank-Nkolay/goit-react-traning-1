@@ -7,5 +7,5 @@ function fetchPokemon(name) {
     return Promise.reject(new Error(`Нет покемона с именем ${name}`));
   });
 }
-const api = { fetchPokemon };
-export default api;
+export const api = { fetchPokemon };
+// export default api;

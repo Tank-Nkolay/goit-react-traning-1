@@ -1,6 +1,7 @@
 import React from 'react';
 import { nanoid } from 'nanoid';
 // import { ToastContainer } from 'react-toastify';
+// hot tast
 // импорт масива данных для разметки (для пропсов)
 import pantings from '../../Json/pantings.json';
 import recipes from '../../Json/recipes.json';
@@ -31,6 +32,7 @@ import IconButton from '../IconButton';
 import Reader from '../Reader';
 import PokemonForm from '../Pokemon/PokemonForm';
 import PokemonInfo from '../Pokemon/PokemonInfo';
+import MaterialEditorForm from '../MaterialEditorForm/MaterialEditorForm';
 // импорт иконки svg
 import { ReactComponent as AddIcon } from '../../icons/add.svg';
 
@@ -95,6 +97,9 @@ export class App extends React.Component {
     const { showModal, showClock } = this.state;
     return (
       <Container>
+        <Section>
+          <MaterialEditorForm />
+        </Section>
         <Section>
           <Div>
             <PokemonForm onFormSubmit={this.handleFormSubmit} />
