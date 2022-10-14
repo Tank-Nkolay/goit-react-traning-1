@@ -1,6 +1,7 @@
 import React from 'react';
 import PokemonErrorView from './PokemonErrorView';
 import PokemonDataView from './PokemonDataView';
+import PokemonPendingView from './PokemonPendingView';
 
 class PokemonInfo extends React.Component {
   state = {
@@ -17,17 +18,22 @@ class PokemonInfo extends React.Component {
       //   console.log('Изменилось имя покемона');
       // включаем ЛОАДЕР, обнуляем ПОКЕМОН
       this.setState({ status: 'pending' });
-      fetch(`https://pokeapi.co/api/v2/pokemon/${nextName}`)
-        .then(response => {
-          if (response.ok) {
-            return response.json();
-          }
-          //   так мы обрабатываем 404 ошибку
-          return Promise.reject(new Error(`Нет покемона с именем ${nextName}`));
-        })
-        .then(pokemon => this.setState({ pokemon, status: 'resolved' }))
-        .catch(error => this.setState({ error, status: 'rejected' }));
-      console.log(this.error);
+
+      setTimeout(() => {
+        fetch(`https://pokeapi.co/api/v2/pokemon/${nextName}`)
+          .then(response => {
+            if (response.ok) {
+              return response.json();
+            }
+            //   так мы обрабатываем 404 ошибку
+            return Promise.reject(
+              new Error(`Нет покемона с именем ${nextName}`)
+            );
+          })
+          .then(pokemon => this.setState({ pokemon, status: 'resolved' }))
+          .catch(error => this.setState({ error, status: 'rejected' }));
+        console.log(this.error);
+      }, 2000);
     }
   }
 
@@ -38,7 +44,7 @@ class PokemonInfo extends React.Component {
       return <div>Введите имя покемона</div>;
     }
     if (status === 'pending') {
-      return <h2>Загружаем ...</h2>;
+      return <PokemonPendingView pokemonName={this.props.pokemonName} />;
     }
     if (status === 'rejected') {
       return <PokemonErrorView message={error.message} />;
