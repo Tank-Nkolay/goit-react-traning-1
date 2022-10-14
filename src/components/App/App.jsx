@@ -29,7 +29,7 @@ import Clock from '../Clock';
 import Tabs from '../Tabs';
 import IconButton from '../IconButton';
 import Reader from '../Reader';
-import PokemonForm from '../Pokemon';
+import PokemonForm from '../Pokemon/PokemonForm';
 import PokemonInfo from '../Pokemon/PokemonInfo';
 // импорт иконки svg
 import { ReactComponent as AddIcon } from '../../icons/add.svg';
