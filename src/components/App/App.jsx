@@ -34,7 +34,7 @@ import PokemonForm from '../Pokemon/PokemonForm';
 import PokemonInfo from '../Pokemon/PokemonInfo';
 import MaterialEditorForm from '../MaterialEditorForm/MaterialEditorForm';
 import * as API from '../MaterialEditorForm/api';
-
+import Materials from '../MaterialEditorForm/Materials';
 // импорт иконки svg
 import { ReactComponent as AddIcon } from '../../icons/add.svg';
 
@@ -113,6 +113,7 @@ export class App extends React.Component {
       <Container>
         <Section>
           <MaterialEditorForm onSubmit={this.addMaterial} />
+          <Materials items={this.state.materials} />
         </Section>
         <Section>
           <Div>
