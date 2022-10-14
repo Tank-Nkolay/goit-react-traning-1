@@ -53,17 +53,6 @@ class PokemonInfo extends React.Component {
         </div>
       );
     }
-
-    return (
-      <div>
-        <p>{pokemon.name}</p>
-        <img
-          src={pokemon.sprites.other['official-artwork'].front_default}
-          width="240"
-          alt={pokemon.name}
-        />
-      </div>
-    );
   }
 }
 
