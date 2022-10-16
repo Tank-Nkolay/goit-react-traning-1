@@ -1,4 +1,11 @@
 import { Formik, Form, Field } from 'formik';
+import styled from '@emotion/styled';
+
+// для стилизации элементов ФОРМИК
+// т потом делаем замену
+const Input = styled(Field)`
+  font-size: 36px;
+`;
 
 const MaterialEditorForm = ({ onSubmit }) => {
   const handleSubmit = async (values, actions) => {
@@ -16,7 +23,7 @@ const MaterialEditorForm = ({ onSubmit }) => {
           <Form>
             <label>
               Описание
-              <Field name="title" type="text" />
+              <Input name="title" type="text" />
             </label>
             <label>
               Ссылка
