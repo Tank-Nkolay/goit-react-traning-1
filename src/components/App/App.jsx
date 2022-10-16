@@ -34,7 +34,7 @@ import PokemonForm from '../Pokemon/PokemonForm';
 import PokemonInfo from '../Pokemon/PokemonInfo';
 import MaterialEditorForm from '../MaterialEditorForm/MaterialEditorForm';
 import * as API from '../MaterialEditorForm/api';
-import Materials from '../MaterialEditorForm/Materials';
+import MaterialsList from '../MaterialEditorForm/MaterialsList';
 // импорт иконки svg
 import { ReactComponent as AddIcon } from '../../icons/add.svg';
 
@@ -49,12 +49,20 @@ export class App extends React.Component {
     todos: [],
     pokemonName: '',
     materials: [],
+    isLoading: false,
+    error: false,
   };
 
   // для MaterialEditorForm
   async componentDidMount() {
-    const materials = await API.getMaterials();
-    this.setState({ materials });
+    try {
+      this.setState({ isLoading: true });
+      const materials = await API.getMaterials();
+      this.setState({ materials, isLoading: false });
+    } catch (error) {
+      this.setState({ error: true, isLoading: false });
+      console.log(error);
+    }
   }
 
   addMaterial = async values => {
@@ -63,6 +71,33 @@ export class App extends React.Component {
       this.setState(state => ({ materials: [...state.materials, material] }));
       // console.log(material);
     } catch (error) {
+      this.setState({ error: true, isLoading: false });
+      console.log(error);
+    }
+  };
+
+  deleteMaterial = async id => {
+    try {
+      await API.deleteMaterials(id);
+      this.setState(state => ({
+        materials: state.materials.filter(material => material.id !== id),
+      }));
+    } catch (error) {
+      this.setState({ error: true });
+      console.log(error);
+    }
+  };
+
+  updateMaterial = async fields => {
+    try {
+      const updatedMaterial = await API.updateMaterial(fields);
+      this.setState(state => ({
+        materials: state.materials.map(material =>
+          material.id === fields.id ? updatedMaterial : material
+        ),
+      }));
+    } catch (error) {
+      this.setState({ error: true });
       console.log(error);
     }
   };
@@ -117,8 +152,17 @@ export class App extends React.Component {
     return (
       <Container>
         <Section>
+          {this.state.error && <p>Есть ошибка! Попробуйте еще раз!</p>}
           <MaterialEditorForm onSubmit={this.addMaterial} />
-          <Materials items={this.state.materials} />
+          {this.state.isLoading ? (
+            'Загружаем материалы ...'
+          ) : (
+            <MaterialsList
+              items={this.state.materials}
+              onDelete={this.deleteMaterial}
+              onUpdate={this.updateMaterial}
+            />
+          )}
         </Section>
         <Section>
           <Div>
