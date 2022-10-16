@@ -1,11 +1,11 @@
 import Material from './Material';
 
-const MaterialsList = ({ items, onDelete, onUpdate }) => {
+const MaterialsList = ({ items, ...otherProps }) => {
   return (
     <ul>
       {items.map(item => (
         <li key={item.id}>
-          <Material item={item} onDelete={onDelete} onUpdate={onUpdate} />
+          <Material item={item} {...otherProps} />
           <hr />
         </li>
       ))}
