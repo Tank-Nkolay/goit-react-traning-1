@@ -33,8 +33,9 @@ import Reader from '../Reader';
 import PokemonForm from '../Pokemon/PokemonForm';
 import PokemonInfo from '../Pokemon/PokemonInfo';
 import MaterialEditorForm from '../MaterialEditorForm/MaterialEditorForm';
-import * as API from '../MaterialEditorForm/api';
+// import * as API from '../MaterialEditorForm/api';
 import MaterialsList from '../MaterialEditorForm/MaterialsList';
+import LoadMore from '../LoadMore/LoadMore';
 // импорт иконки svg
 import { ReactComponent as AddIcon } from '../../icons/add.svg';
 
@@ -52,55 +53,55 @@ export class App extends React.Component {
     isLoading: false,
     error: false,
   };
-
+  // ПОКА ОТКЛЮЧИЛ API !!!
   // для MaterialEditorForm
-  async componentDidMount() {
-    try {
-      this.setState({ isLoading: true });
-      const materials = await API.getMaterials();
-      this.setState({ materials, isLoading: false });
-    } catch (error) {
-      this.setState({ error: true, isLoading: false });
-      console.log(error);
-    }
-  }
+  // async componentDidMount() {
+  //   try {
+  //     this.setState({ isLoading: true });
+  //     const materials = await API.getMaterials();
+  //     this.setState({ materials, isLoading: false });
+  //   } catch (error) {
+  //     this.setState({ error: true, isLoading: false });
+  //     console.log(error);
+  //   }
+  // }
 
-  addMaterial = async values => {
-    try {
-      const material = await API.addMaterial(values);
-      this.setState(state => ({ materials: [...state.materials, material] }));
-      // console.log(material);
-    } catch (error) {
-      this.setState({ error: true, isLoading: false });
-      console.log(error);
-    }
-  };
+  // addMaterial = async values => {
+  //   try {
+  //     const material = await API.addMaterial(values);
+  //     this.setState(state => ({ materials: [...state.materials, material] }));
+  //     // console.log(material);
+  //   } catch (error) {
+  //     this.setState({ error: true, isLoading: false });
+  //     console.log(error);
+  //   }
+  // };
 
-  deleteMaterial = async id => {
-    try {
-      await API.deleteMaterials(id);
-      this.setState(state => ({
-        materials: state.materials.filter(material => material.id !== id),
-      }));
-    } catch (error) {
-      this.setState({ error: true });
-      console.log(error);
-    }
-  };
+  // deleteMaterial = async id => {
+  //   try {
+  //     await API.deleteMaterials(id);
+  //     this.setState(state => ({
+  //       materials: state.materials.filter(material => material.id !== id),
+  //     }));
+  //   } catch (error) {
+  //     this.setState({ error: true });
+  //     console.log(error);
+  //   }
+  // };
 
-  updateMaterial = async fields => {
-    try {
-      const updatedMaterial = await API.updateMaterial(fields);
-      this.setState(state => ({
-        materials: state.materials.map(material =>
-          material.id === fields.id ? updatedMaterial : material
-        ),
-      }));
-    } catch (error) {
-      this.setState({ error: true });
-      console.log(error);
-    }
-  };
+  // updateMaterial = async fields => {
+  //   try {
+  //     const updatedMaterial = await API.updateMaterial(fields);
+  //     this.setState(state => ({
+  //       materials: state.materials.map(material =>
+  //         material.id === fields.id ? updatedMaterial : material
+  //       ),
+  //     }));
+  //   } catch (error) {
+  //     this.setState({ error: true });
+  //     console.log(error);
+  //   }
+  // };
 
   // для pokemon, при Submit формы, записываем данные в state ==
   handleFormSubmit = pokemonName => {
@@ -151,6 +152,9 @@ export class App extends React.Component {
     const { showModal, showClock } = this.state;
     return (
       <Container>
+        <Section>
+          <LoadMore />
+        </Section>
         <Section>
           {this.state.error && <p>Есть ошибка! Попробуйте еще раз!</p>}
           <MaterialEditorForm onSubmit={this.addMaterial} />
