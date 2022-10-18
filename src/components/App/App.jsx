@@ -36,6 +36,7 @@ import MaterialEditorForm from '../MaterialEditorForm/MaterialEditorForm';
 // import * as API from '../MaterialEditorForm/api';
 import MaterialsList from '../MaterialEditorForm/MaterialsList';
 import LoadMore from '../LoadMore/LoadMore';
+import Hooks from '../Hooks/Hooks';
 // импорт иконки svg
 import { ReactComponent as AddIcon } from '../../icons/add.svg';
 
@@ -152,6 +153,9 @@ export class App extends React.Component {
     const { showModal, showClock } = this.state;
     return (
       <Container>
+        <Section title="Hooks">
+          <Hooks />
+        </Section>
         <Section>
           <LoadMore />
         </Section>
