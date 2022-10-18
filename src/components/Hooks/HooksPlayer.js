@@ -1,13 +1,13 @@
 import { useRef } from 'react';
-import { Container } from './Hooks.styled';
+// import { Container } from './Hooks.styled';
 
-const HooksPlayer = ({ source }) => {
+const Player = ({ source }) => {
   const playerRef = useRef();
   const play = () => playerRef.current.play();
   const pause = () => playerRef.current.pause();
 
   return (
-    <Container>
+    <div>
       <video ref={playerRef} src={source}>
         Sorry, your browser does not support embedded videos.
       </video>
@@ -15,10 +15,8 @@ const HooksPlayer = ({ source }) => {
         <button onClick={play}>Play</button>
         <button onClick={pause}>Pause</button>
       </div>
-    </Container>
+    </div>
   );
 };
 
-export default HooksPlayer;
-
-import { useRef } from 'react';
+export default Player;

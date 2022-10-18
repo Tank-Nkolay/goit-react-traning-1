@@ -37,7 +37,7 @@ import MaterialEditorForm from '../MaterialEditorForm/MaterialEditorForm';
 import MaterialsList from '../MaterialEditorForm/MaterialsList';
 import LoadMore from '../LoadMore/LoadMore';
 import Hooks from '../Hooks/Hooks';
-import HooksPlayer from '../Hooks/Hooks';
+import Player from '../Hooks/HooksPlayer';
 // импорт иконки svg
 import { ReactComponent as AddIcon } from '../../icons/add.svg';
 
@@ -155,7 +155,7 @@ export class App extends React.Component {
     return (
       <Container>
         <Section title="Hooks">
-          <HooksPlayer source="http://media.w3.org/2010/05/sintel/trailer.mp4" />
+          <Player source="http://media.w3.org/2010/05/sintel/trailer.mp4" />
           <Hooks />
         </Section>
         <Section>
