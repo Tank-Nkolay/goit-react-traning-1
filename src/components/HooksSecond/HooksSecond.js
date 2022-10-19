@@ -13,28 +13,30 @@ export default class SignupForm extends Component {
   };
 
   render() {
-    <form autoComplete="off">
-      <label>
-        <span>Почта</span>
-        <input
-          type="email"
-          name="email"
-          onChange={this.handleChange}
-          value={this.state.email}
-        />
-      </label>
+    return (
+      <form autoComplete="off">
+        <label>
+          <span>Почта</span>
+          <input
+            type="email"
+            name="email"
+            onChange={this.handleChange}
+            value={this.state.email}
+          />
+        </label>
 
-      <label>
-        <span>Пароль</span>
-        <input
-          type="password"
-          name="password"
-          onChange={this.handleChange}
-          value={this.state.password}
-        />
-      </label>
+        <label>
+          <span>Пароль</span>
+          <input
+            type="password"
+            name="password"
+            onChange={this.handleChange}
+            value={this.state.password}
+          />
+        </label>
 
-      <button type="submit">Зарегистрироваться</button>
-    </form>;
+        <button type="submit">Зарегистрироваться</button>
+      </form>
+    );
   }
 }
