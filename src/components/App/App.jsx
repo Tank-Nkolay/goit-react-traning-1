@@ -38,6 +38,7 @@ import MaterialsList from '../MaterialEditorForm/MaterialsList';
 import LoadMore from '../LoadMore/LoadMore';
 import Hooks from '../Hooks/Hooks';
 import Player from '../Hooks/HooksPlayer';
+import SignupForm from '../HooksSecond/HooksSecond';
 // импорт иконки svg
 import { ReactComponent as AddIcon } from '../../icons/add.svg';
 
@@ -154,6 +155,9 @@ export class App extends React.Component {
     const { showModal, showClock } = this.state;
     return (
       <Container>
+        <Section title="Hooks-2">
+          <SignupForm />
+        </Section>
         <Section title="Hooks">
           <Player source="http://media.w3.org/2010/05/sintel/trailer.mp4" />
           <Hooks />
