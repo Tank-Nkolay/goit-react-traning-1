@@ -4,6 +4,37 @@ import { useState } from 'react';
 export default function SignupForm() {
   // передаем начальное значение
   const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  // функция - что должен сделать setEmail - записать текущее значение в email
+  const handleChange = event => {
+    const { name, value } = event.target;
+
+    switch (name) {
+      case 'email':
+        setEmail(value);
+        break;
+
+      case 'password':
+        setPassword(value);
+        break;
+
+      default:
+        return;
+    }
+    // switch (event.target.name) {
+    //   case 'email':
+    //     setEmail(event.target.value);
+    //     break;
+
+    //   case 'password':
+    //     setPassword(event.target.value);
+    //     break;
+
+    //   default:
+    //     return;
+    // }
+  };
 
   return (
     <form autoComplete="off">
@@ -12,7 +43,7 @@ export default function SignupForm() {
         <input
           type="email"
           name="email"
-          onChange={this.handleChange}
+          onChange={handleChange}
           value={email}
         />
       </label>
@@ -22,8 +53,8 @@ export default function SignupForm() {
         <input
           type="password"
           name="password"
-          onChange={this.handleChange}
-          value={this.state.password}
+          onChange={handleChange}
+          value={password}
         />
       </label>
 
