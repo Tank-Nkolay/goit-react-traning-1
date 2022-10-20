@@ -6,6 +6,10 @@ const useLocalStorage = (key, defaultValue) => {
     return JSON.parse(window.localStorage.getItem(key)) ?? defaultValue;
   });
 
+  useEffect(() => {
+    window.localStorage.setItem(key, JSON.stringify(state));
+  }, [key, state]);
+
   return [state, setState];
 };
 
@@ -29,14 +33,15 @@ export default function SignupFormClean() {
     }
   };
 
+  // ЭТИ УЖЕ НЕ НАДО ================================
   // записываем данные в ЛОКАЛ-СТОРЕДЖ при изменении значения email (пр этом email переводим в строку)
-  useEffect(() => {
-    window.localStorage.setItem('email', JSON.stringify(email));
-  }, [email]);
+  //   useEffect(() => {
+  //     window.localStorage.setItem('email', JSON.stringify(email));
+  //   }, [email]);
 
-  useEffect(() => {
-    window.localStorage.setItem('password', JSON.stringify(password));
-  }, [password]);
+  //   useEffect(() => {
+  //     window.localStorage.setItem('password', JSON.stringify(password));
+  //   }, [password]);
 
   return (
     <form autoComplete="off">
