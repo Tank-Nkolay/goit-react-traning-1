@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 // import { Container } from './Hooks.styled';
 
 export default function SignupForm() {
@@ -35,6 +35,15 @@ export default function SignupForm() {
     //     return;
     // }
   };
+
+  // записываем данные в ЛОКАЛ-СТОРЕДЖ при изменении значения email (пр этом email переводим в строку)
+  useEffect(() => {
+    window.localStorage.setItem('email', JSON.stringify(email));
+  }, [email]);
+
+  useEffect(() => {
+    window.localStorage.setItem('password', JSON.stringify(password));
+  }, [password]);
 
   return (
     <form autoComplete="off">

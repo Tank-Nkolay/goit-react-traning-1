@@ -38,7 +38,7 @@ import MaterialsList from '../MaterialEditorForm/MaterialsList';
 import LoadMore from '../LoadMore/LoadMore';
 import Hooks from '../Hooks/Hooks';
 import Player from '../Hooks/HooksPlayer';
-import SignupForm from '../HooksSecond/HooksSecond';
+import SignupForm from '../HooksSecond/HooksForm';
 import HooksColorPicker from '../HooksSecond/HooksColorPicker';
 import HooksCounter from '../HooksSecond/HooksCounter';
 // импорт иконки svg
