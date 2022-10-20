@@ -2,14 +2,14 @@ import { useState, useEffect } from 'react';
 // import { Container } from './Hooks.styled';
 
 export default function SignupForm() {
-  // передаем начальное значение 0 или
-  // делаем обращение к ЛОКАЛ-СТОРЕДЖ
-  const [email, setEmail] = useState(
-    JSON.parse(window.localStorage.getItem('email')) ?? ''
-  );
-  const [password, setPassword] = useState(
-    JSON.parse(window.localStorage.getItem('password')) ?? ''
-  );
+  // передаем начальное значение 0 или делаем обращение к ЛОКАЛ-СТОРЕДЖ
+  // если передать функцию, то будет ЛЕНИВЫЙ вызов, только при монтировании (перезагрузке) иначе при каждом рендере
+  const [email, setEmail] = useState(() => {
+    return JSON.parse(window.localStorage.getItem('email')) ?? '';
+  });
+  const [password, setPassword] = useState(() => {
+    return JSON.parse(window.localStorage.getItem('password')) ?? '';
+  });
 
   // функция - что должен сделать setEmail - записать текущее значение в email
   const handleChange = event => {
@@ -77,6 +77,7 @@ export default function SignupForm() {
   );
 }
 
+// =====================================================
 // =====================================================
 // старый вариант на классах
 // =====================================================

@@ -41,6 +41,7 @@ import Player from '../Hooks/HooksPlayer';
 import SignupForm from '../HooksSecond/HooksForm';
 import HooksColorPicker from '../HooksSecond/HooksColorPicker';
 import HooksCounter from '../HooksSecond/HooksCounter';
+// import SignupFormClean from '../HooksSecond/HooksFormClean';
 // импорт иконки svg
 import { ReactComponent as AddIcon } from '../../icons/add.svg';
 
@@ -158,6 +159,7 @@ export class App extends React.Component {
     return (
       <Container>
         <Section title="Hooks-2">
+          {/* <SignupFormClean /> */}
           <HooksCounter />
           <HooksColorPicker options={colorPickerOptions} />
           <SignupForm />
