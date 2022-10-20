@@ -2,9 +2,14 @@ import { useState, useEffect } from 'react';
 // import { Container } from './Hooks.styled';
 
 export default function SignupForm() {
-  // передаем начальное значение
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  // передаем начальное значение 0 или
+  // делаем обращение к ЛОКАЛ-СТОРЕДЖ
+  const [email, setEmail] = useState(
+    JSON.parse(window.localStorage.getItem('email')) ?? ''
+  );
+  const [password, setPassword] = useState(
+    JSON.parse(window.localStorage.getItem('password')) ?? ''
+  );
 
   // функция - что должен сделать setEmail - записать текущее значение в email
   const handleChange = event => {
