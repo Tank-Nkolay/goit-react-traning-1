@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-// выносим в отдельную локальную функцию общуюю логику для многих случаев
+// КАСТОМНЫЙ ХУК выносим в отдельную локальную функцию общуюю логику для многих случаев
 const useLocalStorage = (key, defaultValue) => {
   const [state, setState] = useState(() => {
     return JSON.parse(window.localStorage.getItem(key)) ?? defaultValue;
