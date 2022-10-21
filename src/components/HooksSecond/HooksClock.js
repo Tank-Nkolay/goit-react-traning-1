@@ -1,36 +1,28 @@
-import React, { Component } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Container } from './HooksClock.styled';
 
-export default class HooksClock extends Component {
-  state = {
-    time: new Date().toLocaleTimeString(),
+export default function HooksClock() {
+  const [time, setTime] = useState(() => new Date());
+  // при помощи useRef объект вызывается 1 раз при первом рендере и ВСЕ и больше не вызывается
+  // useRef задает значение current и оно постоянно дальше (не перерендеривается)
+  const intervalId = useRef(null);
+
+  useEffect(() => {
+    intervalId.current = setInterval(() => {
+      setTime(new Date());
+    }, 1000);
+  }, []);
+
+  const stop = () => {
+    clearInterval(intervalId.current);
   };
 
-  intervalId = null;
-
-  componentDidMount() {
-    this.intervalId = setInterval(
-      () => this.setState({ time: new Date().toLocaleTimeString() }),
-      1000
-    );
-  }
-
-  componentWillUnmount() {
-    this.stop();
-  }
-
-  stop = () => {
-    clearInterval(this.intervalId);
-  };
-
-  render() {
-    return (
-      <Container>
-        <p>{this.state.time}</p>
-        <button type="button" onClick={this.stop}>
-          Остановить
-        </button>
-      </Container>
-    );
-  }
+  return (
+    <Container>
+      <p>{time.toLocaleTimeString()}</p>
+      <button type="button" onClick={stop}>
+        Остановить
+      </button>
+    </Container>
+  );
 }
