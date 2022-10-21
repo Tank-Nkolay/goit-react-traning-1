@@ -9,8 +9,13 @@ export default function HooksClock() {
 
   useEffect(() => {
     intervalId.current = setInterval(() => {
+      console.log('интервал');
       setTime(new Date());
     }, 1000);
+    return () => {
+      console.log('очистка');
+      stop();
+    };
   }, []);
 
   const stop = () => {
