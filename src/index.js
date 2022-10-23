@@ -6,11 +6,14 @@ import { App } from 'components/App/App';
 import './index.css';
 // импорт константы цветов и потом обертка (доступно на ПРОПС)
 import { theme } from './Constans/theme';
+// import HooksContext from './components/HooksSecond/Context/HooksContext';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
+      {/* <HooksContext> */}
       <App />
+      {/* </HooksContext> */}
     </ThemeProvider>
   </React.StrictMode>
 );
