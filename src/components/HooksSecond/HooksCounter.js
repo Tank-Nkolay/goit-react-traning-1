@@ -20,8 +20,24 @@ function HooksCounter() {
   //     console.log('Запустил Use Effect');
   //   }, [counterA]);
   // ===============================================================
+  //   так можно пропустить ПЕРВЫЙ РЕНДЕР при загрузке
+  //  ВАРИАНТ 1 =====
+  //   useEffect(() => {
+  //  вариант для fetch, когда мы делаем запрос
+  //  if (query === '') {
+  //   return;
+  //   }, [query]);
+  //  ВАРИАНТ 2 =====  //
+  //  const isFirstRender = useRef(true);
+  //  useEffect(() => {
+  //  if (isFirstRender.current) {
+  //  isFirstRender.current = false;
+  //   return;
+  //   }, [isFirstRender]);
+  // ===============================================================
   //   так запускается ТОЛЬКО при монтировании и изменении состояния counterA или counterB
   useEffect(() => {
+    // console.log(`Выполняется UseEffect - ${Date.now()}`);
     const totalClicks = counterA + counterB;
     document.title = `Всего кликнули ${totalClicks} раз`;
   }, [counterA, counterB]);
