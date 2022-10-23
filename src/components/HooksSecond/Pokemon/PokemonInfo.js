@@ -1,10 +1,10 @@
-import React from 'react';
+import {useState} from 'react';
 import PokemonErrorView from './PokemonErrorView';
 import PokemonDataView from './PokemonDataView';
 import PokemonPendingView from './PokemonPendingView';
 import { api } from './pokemon-api.js';
 
-class PokemonInfo extends React.Component {
+export default function PokemonInfo() {
   state = {
     pokemon: null,
     error: null,
@@ -46,7 +46,6 @@ class PokemonInfo extends React.Component {
   }
 }
 
-export default PokemonInfo;
 
 // полный код запроса FETCH =================================
 // fetch(`https://pokeapi.co/api/v2/pokemon/${nextName}`)
