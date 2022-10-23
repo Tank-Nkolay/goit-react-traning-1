@@ -19,7 +19,7 @@ export default function HooksContext({ children }) {
 
   const providerValue = useMemo(() => {
     return { user, isLoggedIn, onLogIn, onLogOut };
-  });
+  }, [isLoggedIn, user]);
 
   return (
     <authContext.Provider value={providerValue}>
