@@ -1,51 +1,49 @@
-import {useState} from 'react';
+import { useState, useEffect } from 'react';
 import PokemonErrorView from './PokemonErrorView';
 import PokemonDataView from './PokemonDataView';
 import PokemonPendingView from './PokemonPendingView';
 import { api } from './pokemon-api.js';
 
-export default function PokemonInfo() {
-  state = {
-    pokemon: null,
-    error: null,
-    // для state машины
-    status: 'idle',
-  };
+const Status = {
+  IDLE: 'idle',
+  PENDING: 'pending',
+  RESOLVED: 'resolved',
+  REJECTED: 'rejected',
+};
 
-  componentDidUpdate(prevProps, prevState) {
-    const prevName = prevProps.pokemonName;
-    const nextName = this.props.pokemonName;
-    if (prevName !== nextName) {
-      this.setState({ status: 'pending' });
+export default function PokemonInfo({ pokemonName }) {
+  const [pokemon, setPokemon] = useState(null);
+  const [error, setError] = useState(null);
+  const [status, setStatus] = useState(Status.IDLE);
 
-      // вынносим кусочек в функцию и передаем, ниже полный код
-      setTimeout(() => {
-        api
-          .fetchPokemon(nextName)
-          .then(pokemon => this.setState({ pokemon, status: 'resolved' }))
-          .catch(error => this.setState({ error, status: 'rejected' }));
-      }, 2000);
-    }
+  useEffect(() => {
+    setStatus(Status.PENDING);
+    api
+      .fetchPokemon(pokemonName)
+      .then(pokemon => {
+        setPokemon(pokemon);
+        setStatus(Status.RESOLVED);
+      })
+      .catch(error => {
+        setError(error);
+        setStatus(Status.REJECTED);
+      });
+  }, [pokemonName]);
+
+  // state машина
+  if (status === 'idle') {
+    return <div>Введите имя покемона</div>;
   }
-
-  render() {
-    const { pokemon, error, status } = this.state;
-    // state машина
-    if (status === 'idle') {
-      return <div>Введите имя покемона</div>;
-    }
-    if (status === 'pending') {
-      return <PokemonPendingView pokemonName={this.props.pokemonName} />;
-    }
-    if (status === 'rejected') {
-      return <PokemonErrorView message={error.message} />;
-    }
-    if (status === 'resolved') {
-      return <PokemonDataView pokemon={pokemon} />;
-    }
+  if (status === 'pending') {
+    return <PokemonPendingView pokemonName={pokemonName} />;
+  }
+  if (status === 'rejected') {
+    return <PokemonErrorView message={error.message} />;
+  }
+  if (status === 'resolved') {
+    return <PokemonDataView pokemon={pokemon} />;
   }
 }
-
 
 // полный код запроса FETCH =================================
 // fetch(`https://pokeapi.co/api/v2/pokemon/${nextName}`)
