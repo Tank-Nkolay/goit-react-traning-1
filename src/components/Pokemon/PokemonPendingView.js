@@ -4,7 +4,7 @@ import PokemonDataView from './PokemonDataView';
 import waitImg from '../../jpg/waitImg.png';
 
 // для СПИНЕР стили прописали в index.css и вызвали здесь
-function PokemonPendingView({ pokemonName }) {
+export default function PokemonPendingView({ pokemonName }) {
   // элемент СКЕЛЕТОНА (для предварительного дефолтного показа)=======
   const pokemon = {
     name: pokemonName,
@@ -25,5 +25,3 @@ function PokemonPendingView({ pokemonName }) {
     </div>
   );
 }
-
-export default PokemonPendingView;

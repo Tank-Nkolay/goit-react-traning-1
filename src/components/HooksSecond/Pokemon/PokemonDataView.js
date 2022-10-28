@@ -1,4 +1,4 @@
-function PokemonDataView({ pokemon: { sprites, name, stats } }) {
+export default function PokemonDataView({ pokemon: { sprites, name, stats } }) {
   return (
     <div>
       <img
@@ -17,5 +17,3 @@ function PokemonDataView({ pokemon: { sprites, name, stats } }) {
     </div>
   );
 }
-
-export default PokemonDataView;

@@ -8,13 +8,13 @@ export default function PokemonForm({ onSubmit }) {
   const [pokemonName, setPokemonName] = useState('');
 
   //   метод для временного сохранения в state (для фильтр), очистка в другом
-  const handleNameChange = e => {
-    setPokemonName(e.currentTarget.value.toLowerCase());
+  const handleNameChange = event => {
+    setPokemonName(event.currentTarget.value.toLowerCase());
   };
 
   //   метод после САБМИТ передача в APP и очистки state name
-  const handleSubmit = e => {
-    e.preventDefault();
+  const handleSubmit = event => {
+    event.preventDefault();
 
     if (pokemonName.trim() === '') {
       // toast('Введите имя покемона!');
