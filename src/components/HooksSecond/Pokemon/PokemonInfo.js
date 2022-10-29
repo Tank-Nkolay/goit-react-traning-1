@@ -19,6 +19,7 @@ export default function PokemonInfo({ pokemonName }) {
   useEffect(() => {
     // проверка, если пустая строка ВЫХОДИМ (иначе все упадет)
     // тоесть, мы не делаем запрос по пустой строке
+
     if (!pokemonName) {
       return;
     }
