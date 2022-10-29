@@ -4,10 +4,12 @@ import { Box } from './HooksCounterSecond.styled';
 function countReducer(state, action) {
   switch (action.type) {
     case 'increment':
-      return state + action.payload;
+      //   return state + action.payload;
+      return { ...state, count: state.count + action.payload };
 
     case 'decrement':
-      return state - action.payload;
+      //   return state - action.payload;
+      return { ...state, count: state.count - action.payload };
 
     default:
       throw new Error(`Ошибка action type ${action.type}`);
@@ -16,11 +18,13 @@ function countReducer(state, action) {
 
 export default function HooksCounterSecond() {
   // если мы используем useReducer, правильно называть не setCount, а dispatch
-  const [count, dispatch] = useReducer(countReducer, 0);
+  //   const [count, dispatch] = useReducer(countReducer, 0);
+  //   ВАРИАНТ ЕСЛИ НАМ НУЖНО РАБОТАТЬ С ОБЬЕКТОМ
+  const [state, dispatch] = useReducer(countReducer, { count: 0 });
 
   return (
     <Box>
-      <p>Значение = {count}</p>
+      <p>Значение = {state.count}</p>
       <button
         type="button"
         onClick={() => dispatch({ type: 'increment', payload: 1 })}
