@@ -10,7 +10,7 @@ function countReducer(state, action) {
       return state - action.payload;
 
     default:
-      return state;
+      throw new Error(`Ошибка action type ${action.type}`);
   }
 }
 
