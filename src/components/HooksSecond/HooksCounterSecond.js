@@ -16,11 +16,19 @@ function countReducer(state, action) {
   }
 }
 
+// вызовется один раз например ЛОКАЛ СТОРЕДЖ
+// function init(param) {
+//   return param + 5;
+// }
+
 export default function HooksCounterSecond() {
   // если мы используем useReducer, правильно называть не setCount, а dispatch
   //   const [count, dispatch] = useReducer(countReducer, 0);
   //   ВАРИАНТ ЕСЛИ НАМ НУЖНО РАБОТАТЬ С ОБЬЕКТОМ
   const [state, dispatch] = useReducer(countReducer, { count: 0 });
+
+  //   мы можем передать доп СТАРТОВОЕ свойство init (вынесена как функция), где значение 0 пойдет как значение param у функции
+  //   const [state, dispatch] = useReducer(countReducer, { count: 0 }, init);
 
   return (
     <Box>
