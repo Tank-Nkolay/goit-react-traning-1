@@ -45,6 +45,7 @@ import SignupFormClean from '../HooksSecond/HooksFormClean';
 import HooksClock from '../HooksSecond/HooksClock';
 import HooksPokemon from '../HooksSecond/Pokemon/HooksPokemon';
 import HooksCounterSecond from '../HooksSecond/HooksCounterSecond';
+import HooksFriendsList from '../HooksSecond/HooksFriendsList';
 // импорт иконки svg
 import { ReactComponent as AddIcon } from '../../icons/add.svg';
 
@@ -162,6 +163,7 @@ export class App extends React.Component {
     return (
       <Container>
         <Section title="Hooks-2">
+          <HooksFriendsList />
           <HooksCounterSecond />
           <HooksPokemon />
           <HooksClock />
