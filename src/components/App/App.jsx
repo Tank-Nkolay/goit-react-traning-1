@@ -47,6 +47,7 @@ import HooksPokemon from '../HooksSecond/Pokemon/HooksPokemon';
 import HooksCounterSecond from '../HooksSecond/HooksCounterSecond';
 import HooksFriendsList from '../HooksSecond/HooksFriendsList';
 import HooksNews from '../HooksSecond/News/HooksNews';
+import UserMenu from '../HooksSecond/Context/UserMenu';
 // импорт иконки svg
 import { ReactComponent as AddIcon } from '../../icons/add.svg';
 
@@ -164,6 +165,7 @@ export class App extends React.Component {
     return (
       <Container>
         <Section title="Hooks-2">
+          <UserMenu />
           <HooksNews />
           <HooksFriendsList />
           <HooksCounterSecond />

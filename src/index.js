@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 // обязательно для ШАБЛОНЫ и потом обертка ThemeProvider
 import { ThemeProvider } from '@emotion/react';
 import { App } from 'components/App/App';
+import authContext from './components/HooksSecond/Context/contex';
 import './index.css';
 // импорт константы цветов и потом обертка (доступно на ПРОПС)
 import { theme } from './Constans/theme';
@@ -11,9 +12,11 @@ import { theme } from './Constans/theme';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-      {/* <HooksContext> */}
-      <App />
-      {/* </HooksContext> */}
+      <authContext.Provider value={{ name: 'Mango' }}>
+        {/* <HooksContext> */}
+        <App />
+        {/* </HooksContext> */}
+      </authContext.Provider>
     </ThemeProvider>
   </React.StrictMode>
 );
