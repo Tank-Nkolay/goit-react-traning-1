@@ -25,6 +25,7 @@ export default function HooksNews() {
   const [query, setQuery] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     setIsLoading(true);
@@ -33,6 +34,7 @@ export default function HooksNews() {
         setArticles(prevArticles => [...prevArticles, ...responseArticles]);
         setCurrentPage(prevCurrentpage => prevCurrentpage + 1);
       })
+      .catch(error => setError(error.message))
       .finally(() => setIsLoading(false));
   }, [query, currentPage]);
 
@@ -42,13 +44,15 @@ export default function HooksNews() {
     setArticles([]);
   };
 
+  const shouldMoreBtn = articles.length > 0 && !isLoading;
+
   return (
     <Container>
       <h3>HTTP запрос на внешний сервер</h3>
       <NewsSearchForm onSubmit={onChangeQuery} />
 
       {isLoading && <p>Loading...</p>}
-
+      {error && <p>Whoops, something went wrong!</p>}
       <ul>
         {articles.map(({ title, url }) => (
           <li key={title}>
@@ -58,6 +62,12 @@ export default function HooksNews() {
           </li>
         ))}
       </ul>
+
+      {shouldMoreBtn && (
+        <button type="button" onClick={() => null}>
+          Загрузить еще
+        </button>
+      )}
     </Container>
   );
 }
