@@ -3,17 +3,28 @@ import ctx from './contex';
 import { Container } from './UserMenu.styled';
 
 export default function UserMenu() {
-  const { name } = useContext(ctx);
+  const { user, logIn, logOut } = useContext(ctx);
 
   console.log('User name');
-  console.log(name);
+  console.log(user);
 
   return (
     <Container>
       <h3>передача Context от родителя напрямую глубоко вниз</h3>
-      <button type="button">Войти</button>
-      <p>{name}</p>
-      <button type="button">Выйти</button>
+
+      {user ? (
+        <>
+          {' '}
+          <p>{user}</p>
+          <button type="button" onClick={logOut}>
+            Выйти
+          </button>
+        </>
+      ) : (
+        <button type="button" onClick={logIn}>
+          Войти
+        </button>
+      )}
     </Container>
   );
 }
