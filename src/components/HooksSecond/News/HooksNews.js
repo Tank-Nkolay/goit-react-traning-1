@@ -32,7 +32,7 @@ export default function HooksNews() {
     fetchArticles({ searchQuery: query, currentPage })
       .then(responseArticles => {
         setArticles(prevArticles => [...prevArticles, ...responseArticles]);
-        setCurrentPage(prevCurrentpage => prevCurrentpage + 1);
+        setCurrentPage(prevCurrentPage => prevCurrentPage + 1);
       })
       .catch(error => setError(error.message))
       .finally(() => setIsLoading(false));
@@ -42,6 +42,7 @@ export default function HooksNews() {
     setQuery(query);
     setCurrentPage(1);
     setArticles([]);
+    setError(null);
   };
 
   const shouldMoreBtn = articles.length > 0 && !isLoading;
