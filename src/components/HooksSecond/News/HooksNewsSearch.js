@@ -14,7 +14,7 @@ export default function NewsSearchForm({ onSubmit }) {
   return (
     <form onSubmit={handleSubmit}>
       <input type="text" value={query} onChange={handleChange} />
-      <button></button>
+      <button>Поиск</button>
     </form>
   );
 }

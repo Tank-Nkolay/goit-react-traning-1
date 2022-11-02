@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import NewsSearchForm from './HooksNewsSearch';
+import { Container } from './HooksNews.jsx';
 
 const fetchArticles = ({
   searchQuery = '',
@@ -15,15 +17,28 @@ const fetchArticles = ({
 
 export default function HooksNews() {
   const [articles, setArticles] = useState([]);
+  const [query, setQuery] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
-    fetchArticles({ searchQuery: 'css' }).then(responseArticles =>
-      setArticles(responseArticles)
+    fetchArticles({ searchQuery: query, currentPage }).then(
+      responseArticles => {
+        setArticles(prevArticles => [...prevArticles, ...responseArticles]);
+        setCurrentPage(prevCurrentpage => prevCurrentpage + 1);
+      }
     );
-  }, []);
+  }, [query, currentPage]);
+
+  const onChangeQuery = query => {
+    setQuery(query);
+    setCurrentPage(1);
+    setArticles([]);
+  };
 
   return (
-    <div>
+    <Container>
+      <h3>HTTP запрос на внешний сервер</h3>
+      <NewsSearchForm onSubmit={onChangeQuery} />
       <ul>
         {articles.map(({ title, url }) => (
           <li key={title}>
@@ -33,6 +48,6 @@ export default function HooksNews() {
           </li>
         ))}
       </ul>
-    </div>
+    </Container>
   );
 }
