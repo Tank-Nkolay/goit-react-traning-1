@@ -25,9 +25,13 @@ export default function HooksNews() {
   const [query, setQuery] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(false);
 
+  // код сырой. по запросу выдает все =======
   useEffect(() => {
+    if (!query) {
+      return;
+    }
     setIsLoading(true);
     fetchArticles({ searchQuery: query, currentPage })
       .then(responseArticles => {
@@ -42,7 +46,7 @@ export default function HooksNews() {
     setQuery(query);
     setCurrentPage(1);
     setArticles([]);
-    setError(null);
+    setError(false);
   };
 
   const shouldMoreBtn = articles.length > 0 && !isLoading;

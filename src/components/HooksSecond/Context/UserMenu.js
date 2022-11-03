@@ -5,8 +5,8 @@ import { Container } from './UserMenu.styled';
 export default function UserMenu() {
   const { user, logIn, logOut } = useContext(ctx);
 
-  console.log('User name');
-  console.log(user);
+  // console.log('User name');
+  // console.log(user);
 
   return (
     <Container>
