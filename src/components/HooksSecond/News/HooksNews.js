@@ -27,7 +27,7 @@ export default function HooksNews() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
 
-  // код сырой. по запросу выдает все =======
+  // код сырой. по запросу выдает все ==========
   useEffect(() => {
     if (!query) {
       return;
